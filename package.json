@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Basic JS based web boilerplate using React, Node and Express. Everything is tailored towards ES6 and working happily with Heroku.",
   "main": "index.js",
-  "type": "module",
   "keywords": [],
   "author": "Christopholemon",
   "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": "13.x"
+  },
   "scripts": {
     "start": "run-s build server",
     "build": "npx webpack",
