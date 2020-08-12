@@ -7,7 +7,7 @@
   "author": "Christopholemon",
   "license": "ISC",
   "scripts": {
-    "start": "npm run build && npm run serve",
+    "start": "npm run serve",
     "serve": "nodemon -r esm -r dotenv/config index.js",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
