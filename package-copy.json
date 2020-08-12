@@ -8,7 +8,13 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm serve",
+    "startAAA": "npm run build && npm run serve",
+    "startDev": "npm run buildDev && npm run serveDev",
+    "serve": "node -r esm -r dotenv/config server.js",
+    "serveDev": "nodemon -r esm -r dotenv/config server.js",
+    "build": "webpack",
+    "buildDev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
