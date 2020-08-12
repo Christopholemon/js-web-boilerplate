@@ -6,6 +6,7 @@
   "keywords": [],
   "author": "Christopholemon",
   "license": "ISC",
+  "type": "module",
   "scripts": {
     "start": "npm run serve",
     "serve": "nodemon -r esm -r dotenv/config index.js",
