@@ -13,7 +13,7 @@ app
   // .use(express.static(path.join(__dirname, 'dist')))
   .get('/',function(req,res) {
     // res.sendFile('/dist/index.html');
-    res.send('???')
+    res.send('??? AAAA ???')
   })
   .listen(port, () => console.log(`>> App listening on port: ${port}`));
 
