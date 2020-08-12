@@ -2,13 +2,13 @@
   "name": "js-web-boilerplate",
   "version": "1.0.0",
   "description": "Basic JS based web boilerplate using React, Node and Express. Everything is tailored towards ES6 and working happily with Heroku.",
-  "main": "server.js",
+  "main": "index.js",
   "keywords": [],
   "author": "Christopholemon",
   "license": "ISC",
   "scripts": {
     "start": "npm run build && npm run serve",
-    "serve": "nodemon -r esm -r dotenv/config server.js",
+    "serve": "nodemon -r esm -r dotenv/config index.js",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
