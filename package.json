@@ -10,7 +10,6 @@
   "scripts": {
     "start": "npm run serve",
     "serve": "nodemon -r esm -r dotenv/config index.js",
-    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
