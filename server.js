@@ -1,4 +1,4 @@
-
+/*
 import express from 'express';
 import path from 'path';
 // import cors from 'cors';
@@ -27,3 +27,15 @@ app
 // Babel
 // React + react dom
 // React hooks or separate state management?
+*/
+
+import express from 'express';
+
+const app = express();
+const PORT = 3333;
+
+app
+  .get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+  .listen(PORT, () => console.log(`>> RUNNING AND LISTENING ON PORT ${PORT}`))
