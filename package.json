@@ -8,8 +8,11 @@
   "license": "ISC",
   "scripts": {
     "start": "npm run build && npm run serve",
-    "build": "npx webpack",
-    "serve": "nodemon -r esm -r dotenv/config server.js",
+    "startDev": "npm run buildDev && npm run serveDev",
+    "serve": "node -r esm -r dotenv/config server.js",
+    "serveDev": "nodemon -r esm -r dotenv/config server.js",
+    "build": "webpack",
+    "buildDev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -26,6 +29,8 @@
     "@babel/core": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "html-webpack-plugin": "^4.3.0",
     "nodemon": "^2.0.4",
     "webpack": "^4.44.1",

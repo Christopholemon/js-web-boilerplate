@@ -6,14 +6,15 @@ import path from 'path';
 
 const app = express();
 const port = process.env.PORT;
-const corsOptions = {};
+// const corsOptions = {};
 
 app
   // .use(cors(corsOptions))
   // .use(helmet())
   .use(express.static(path.join(__dirname, 'dist')))
   .get('/',function(req,res) {
-    res.sendFile('/dist/index.html');
+    // res.sendFile('/dist/index.html');
+    res.send('???')
   })
   .listen(port, () => console.log(`>> App listening on port: ${port}`));
 
