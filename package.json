@@ -10,8 +10,8 @@
     "node": "v14.x"
   },
   "scripts": {
-    "start": "npm run build && npm run serve",
-    "serve": "npx nodemon -r esm -r dotenv/config index.js",
+    "start": "npm run build && node -r esm index.js",
+    "dev": "npm run build && npx nodemon -r esm -r dotenv/config index.js",
     "build": "npx webpack --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
