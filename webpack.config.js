@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const port = process.env.PORT;
+// const port = process.env.PORT;
 
 module.exports = {
-  stats: 'verbose',
+  // stats: 'verbose',
   watch: false,
   mode: 'development',
   entry: {
@@ -19,6 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        // type: 'javascript/esm',
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
@@ -28,12 +29,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
-    new BrowserSyncPlugin({
-      // browse to http://localhost:3000/ during development,
-      // ./dist directory is being served
-      host: 'localhost',
-      port: port,
-      server: { baseDir: ['dist'] }
-    })
+    // new BrowserSyncPlugin({
+    //   // browse to http://localhost:3000/ during development,
+    //   // ./dist directory is being served
+    //   host: 'localhost',
+    //   port: port,
+    //   server: { baseDir: ['dist'] }
+    // })
   ]
 }
