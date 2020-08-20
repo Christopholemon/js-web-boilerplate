@@ -10,7 +10,7 @@ const port = process.env.PORT;
 app
   // .use(cors(corsOptions))
   // .use(helmet())
-  // .use(express.static(path.join(__dirname, 'dist')))
+  .use(express.static(path.join(__dirname, 'static')))
   .get('/',function(req,res) {
     // res.sendFile('/dist/index.html');
     res.send('??? AAAA ???')
