@@ -6,6 +6,22 @@
 //   document.getElementById('root')
 // );
 
+// import './index.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HelloWorld from './components';
+
+setTimeout( 
+  () => { 
+    ReactDOM.render(
+      <HelloWorld />,
+      document.getElementById('root')
+    )
+  },
+  2000
+);
+
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
@@ -18,3 +34,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+*/

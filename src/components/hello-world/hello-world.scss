@@ -1,0 +1,9 @@
+$color: red;
+$title-size: 4rem;
+
+.title {
+  color: $color;
+  font-size: $title-size;
+}
+
+// component-name.scss is a straight-forward SASS file imported by your stateless view component.

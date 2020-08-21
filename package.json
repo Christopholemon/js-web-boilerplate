@@ -2,7 +2,7 @@
   "name": "js-web-boilerplate",
   "version": "1.0.0",
   "description": "Basic JS based web boilerplate using React, Node and Express. Everything is tailored towards ES6 and working happily with Heroku.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "keywords": [],
   "author": "Christopholemon",
   "license": "ISC",
@@ -10,12 +10,10 @@
     "node": "v14.x"
   },
   "scripts": {
-    "start": "node -r esm index.js",
+    "start": "node -r esm server.js",
     "build": "webpack",
-    
-    "serveDev": "node -r esm index.js",
-    "buildDev": "npx webpack --config ./webpack.config.js",
-
+    "serveDev": "node -r esm -r dotenv/config server.js",
+    "buildDev": "npx webpack --watch --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -34,8 +32,12 @@
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^4.2.1",
     "html-webpack-plugin": "^4.3.0",
     "nodemon": "^2.0.4",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
