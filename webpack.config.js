@@ -1,12 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 // const port = process.env.PORT;
 
 module.exports = {
-  // stats: 'verbose',
+  // stats: false,
+  // stats: {
+  //   all: false,
+  //   assets: true,
+  //   env: true,
+  //   entrypoints: true,
+  //   errors: true
+  // },
   watch: false,
   mode: 'development',
   entry: {
@@ -24,18 +31,36 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      { 
-        test: /\.s[ac]ss$/i,
+      {
+        test: /\.scss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // 'postcss-loader',
-          // Translates CSS into CommonJS
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: path.resolve(__dirname, 'static'),
+            },
+          },
           'css-loader',
-          // Compiles Sass to CSS
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer'),
+              ]
+            }
+          },
           'sass-loader',
         ],
-      }
+      },
+      // { 
+      //   test: /\.(s)?css$/,
+      //   use: [
+      //     // EXTRACT CSS
+      //     'style-loader', // Creates `style` nodes from JS strings
+      //     'css-loader', // Translates CSS into CommonJS          
+      //     'sass-loader', // Compiles Sass to CSS
+      //   ],
+      // }
     ]
   },
   // resolve: {
@@ -44,6 +69,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
     // new BrowserSyncPlugin({
     //   // browse to http://localhost:3000/ during development,
