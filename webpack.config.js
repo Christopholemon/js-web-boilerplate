@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 // const port = process.env.PORT;
@@ -34,12 +35,14 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: path.resolve(__dirname, 'static'),
-            },
-          },
+          // TODO: Want CSS output to a dedicated ./static folder
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     publicPath: path.resolve(__dirname, './static'),
+          //   },
+          // },
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -51,22 +54,14 @@ module.exports = {
           },
           'sass-loader',
         ],
-      },
-      // { 
-      //   test: /\.(s)?css$/,
-      //   use: [
-      //     // EXTRACT CSS
-      //     'style-loader', // Creates `style` nodes from JS strings
-      //     'css-loader', // Translates CSS into CommonJS          
-      //     'sass-loader', // Compiles Sass to CSS
-      //   ],
-      // }
+      }
     ]
   },
   // resolve: {
   //   extensions: [' ', '.js', '.jsx', '.scss']
   // },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
