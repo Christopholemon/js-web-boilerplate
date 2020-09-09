@@ -21,6 +21,8 @@ export default HelloWorld;
 // New school react
 import { useDocumentTitle, useFormInput, useWindowResolution } from './hooks/index';
 
+console.log(">> HELLO-WORLD.JS", useDocumentTitle, useFormInput, useWindowResolution)
+
 function HelloWorld(props) {
   const name = useFormInput("Hello");
   const location = useFormInput("World");
