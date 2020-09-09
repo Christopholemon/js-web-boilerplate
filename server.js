@@ -1,6 +1,6 @@
 /*
 
-TO DO:
+**TODO** 
 // - Node w/Dotenv + cli usage
 - Express w/Helmet, Cors, static/public/file serving
 - HTML templating/building with express
@@ -10,6 +10,7 @@ TO DO:
 - React hooks w/Context API
 - Webpack working happily and everything playing nice
 - TS and Jest
+- Linting
 
 */
 

@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 // const port = process.env.PORT;
@@ -16,6 +16,9 @@ module.exports = {
   //   errors: true
   // },
   watch: false,
+  watchOptions: {
+    ignored: ['node_modules/**']
+  },
   mode: 'development',
   entry: {
     main: './src/entry.js',
@@ -61,7 +64,7 @@ module.exports = {
   //   extensions: [' ', '.js', '.jsx', '.scss']
   // },
   plugins: [
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),

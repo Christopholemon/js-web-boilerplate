@@ -12,7 +12,7 @@ export default function useWindowResolution() {
     return () => {
       window.removeEventListener("resize ", handleResize, true);
     };
-  }, [width, height]);
+  }, [width, height]); // Only re-run the effect if width or height changes
   return {
     width,
     height

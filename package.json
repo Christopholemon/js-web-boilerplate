@@ -12,8 +12,8 @@
   "scripts": {
     "start": "node -r esm server.js",
     "build": "webpack",
-    "serveDev": "node -r esm -r dotenv/config server.js",
-    "buildDev": "npx webpack --watch --config ./webpack.config.js",
+    "serveDev": "nodemon --watch ./dist -r esm -r dotenv/config server.js",
+    "buildDev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
