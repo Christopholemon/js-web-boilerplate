@@ -1,1 +1,0 @@
-// component-name-view.js is your stateless view component. For the majority of cases, this component should be able to be pure functional component.

@@ -1,5 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import './hello-world.scss'
+
+/*
+// Old school react
 
 function HelloWorld() {
   return (
@@ -13,14 +16,43 @@ function HelloWorld() {
 }
 
 export default HelloWorld;
-
-// function MyComponent() {
-//   const state = useHook();
-//   return <div {...state} />;
-// }
-// export default withHoc(MyComponent);
-
-/*
-If you are using React hooks,
-You likely only have one root component in your src/components/component-name directory. You can use hooks to manage that component’s local state, global state, and values pulled from React contexts. You typically do not need higher-order components, and if you do, they wrap neatly around the default export:
 */
+
+// New school react
+import { useDocumentTitle, useFormInput, useWindowResolution } from './hooks/index';
+
+function HelloWorld(props) {
+  const name = useFormInput("Hello");
+  const location = useFormInput("World");
+  const resolution = useWindowResolution();
+  useDocumentTitle(name.value + " from " + location.value);
+
+  return (
+    <Fragment>
+      <h1 className="title">
+        HELLO WORLD!?@#
+      </h1>
+      <p>Here is a form using hooks</p>
+      <section className="form">
+        <form autoComplete="off">
+          <section>
+            <label htmlFor="name">Name</label>
+            <input {...name} />
+          </section>
+          <section>
+            <label htmlFor="location">Location</label>
+            <input {...location} />
+          </section>
+        </form>
+        <p>
+          Hello {name.value} from {location.value}
+        </p>
+        <h3>
+          {resolution.width} x {resolution.height}
+        </h3>
+      </section>
+    </Fragment>
+  );
+}
+
+export default HelloWorld;
