@@ -1,6 +1,0 @@
-$u-visibility-types: (
-  hidden,
-  visible,
-) !default;
-
-@include generate-utils(visibility, $u-visibility-types);

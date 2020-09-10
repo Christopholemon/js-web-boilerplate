@@ -1,7 +1,0 @@
-.u-disable-hover-when-supports-touch:hover {
-  @include browser-supports-touch {
-    background: inherit if($important, !important, null);
-    border-color: transparent if($important, !important, null);
-    color: inherit if($important, !important, null);
-  }
-}

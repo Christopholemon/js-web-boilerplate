@@ -1,6 +1,0 @@
-.image-card {
-  @include responsive-tween(s(small), s(medium), padding);
-
-  display: flex;
-  flex-direction: column-reverse;
-}

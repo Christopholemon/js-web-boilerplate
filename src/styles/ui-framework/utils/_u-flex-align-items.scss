@@ -1,7 +1,0 @@
-$u-flex-align-items-types: (
-  baseline, // u-flex-align-items-baseline
-  center,   // u-flex-align-items-center
-  flex-end, // u-flex-align-items-flex-end
-) !default;
-
-@include generate-utils((flex-align-items, align-items), $u-flex-align-items-types);

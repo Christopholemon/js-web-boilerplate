@@ -1,6 +1,0 @@
-$u-flex-grow-types: (
-  0,
-  1,
-) !default;
-
-@include generate-utils(flex-grow, $u-flex-grow-types);

@@ -1,8 +1,0 @@
-$u-heights: 100 !default;
-
-@each $height in $u-heights {
-  %u-height-#{floor($height)},
-  .u-height-#{floor($height)} {
-    height: percentage($height / 100) if($important, !important, null);
-  }
-}

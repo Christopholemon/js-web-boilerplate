@@ -1,6 +1,0 @@
-$u-flex-shrink-types: (
-  0,
-  1,
-) !default;
-
-@include generate-utils(flex-shrink, $u-flex-shrink-types);

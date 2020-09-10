@@ -1,7 +1,0 @@
-@function font-weight($keys, $function-name: "font-weight") {
-  @return get($font-weights, $keys, $function-name);
-}
-
-@function fw($keys) {
-  @return font-weight($keys, "fw");
-}

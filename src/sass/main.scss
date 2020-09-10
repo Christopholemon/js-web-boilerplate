@@ -1,0 +1,24 @@
+@charset 'UTF-8';
+
+// 1. Vendors
+@import './vendors/_index';
+
+// 2. Abstracts - Variables, functions, mixins, and placeholders
+@import './utils/_index';
+
+// 3. Base files
+@import './base/_index';
+
+// 4. Layout-related sections
+@import './layout/_index';
+
+// 5. Components
+@import './components/_index';
+
+// 6. Page-specific styles
+@import './pages/_index';
+
+// 7. Themes
+@import './themes/_index';
+
+//////////////////////////////////////////////////////////

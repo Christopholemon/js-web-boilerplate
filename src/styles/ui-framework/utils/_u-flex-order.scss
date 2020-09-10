@@ -1,6 +1,0 @@
-$u-flex-order-types: (
-  0,
-  1,
-) !default;
-
-@include generate-utils((flex-order, order), $u-flex-order-types);

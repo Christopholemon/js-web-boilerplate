@@ -1,5 +1,4 @@
 import React from "react";
-import './hello-world.scss'
 
 /*
 // Old school react
@@ -23,29 +22,29 @@ import { useCount, useDocumentTitle, useFormInput, useWindowResolution } from '.
 
 function HelloWorld() {
   const name = useFormInput("Blah Blah");
-  const location = useFormInput("Hello World"); 
+  const location = useFormInput("Hello World");
   const count = useCount(0, 1);
   const resolution = useWindowResolution();
-  
+
   useDocumentTitle(name.value + " from " + location.value);
 
   return (
     <>
-      <h1 className="title">
+      <h3>
         HELLO WORLD@#$%
-      </h1>
+      </h3>
       <p>Here is some tests using hooks</p>
-      <section className="form">
+      <section>
         <form autoComplete="off">
           <section>
             <label htmlFor="name">Name</label>
             {/* <input {...name} /> */}
-            <input value={name.value} onChange={name.onChange}/>            
+            <input value={name.value} onChange={name.onChange}/>
           </section>
           <section>
             <label htmlFor="location">Location</label>
             {/* <input value={...location} /> */}
-            <input value={location.value} onChange={location.onChange} />            
+            <input value={location.value} onChange={location.onChange} />
           </section>
         </form>
       </section>
@@ -57,14 +56,8 @@ function HelloWorld() {
       </section>
       <section>
         <p>
-          Hello {name.value} from {location.value}
+          Hello {name.value} from {location.value}. You clicked the magic button {count.value} times. Screen resolution is {resolution.width} x {resolution.height}.
         </p>
-        <h3>
-          {resolution.width} x {resolution.height}
-        </h3>
-        <h3>
-          You clicked the magic button {count.value} times
-        </h3>
       </section>
     </>
   );

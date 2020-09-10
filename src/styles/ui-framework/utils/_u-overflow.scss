@@ -1,5 +1,0 @@
-$u-overflow-types: (
-  hidden,
-) !default;
-
-@include generate-utils(overflow, $u-overflow-types);

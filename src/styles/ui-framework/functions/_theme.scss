@@ -1,7 +1,0 @@
-@function theme($keys, $function-name: "theme") {
-  @return get($colors, join(themes, $keys), $function-name);
-}
-
-@function t($keys) {
-  @return theme($keys, "t");
-}

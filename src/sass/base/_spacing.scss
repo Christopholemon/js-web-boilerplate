@@ -1,0 +1,32 @@
+// Global element spacing for common elements (margin-bottom)
+
+button, input {
+  margin-bottom: 0.5rem;
+}
+
+
+fieldset,
+select,
+textarea {
+  margin-bottom: 1rem;
+}
+
+blockquote,
+dl,
+figure,
+form,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 2rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+label {
+  margin-bottom: 0.25rem;
+}

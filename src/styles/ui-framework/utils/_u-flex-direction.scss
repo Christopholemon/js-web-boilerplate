@@ -1,5 +1,0 @@
-$u-flex-direction-types: (
-  column,
-) !default;
-
-@include generate-utils(flex-direction, $u-flex-direction-types);

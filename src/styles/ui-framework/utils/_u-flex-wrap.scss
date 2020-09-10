@@ -1,6 +1,0 @@
-$u-flex-wrap-types: (
-  no: nowrap,
-  yes: wrap,
-) !default;
-
-@include generate-utils(flex-wrap, $u-flex-wrap-types);

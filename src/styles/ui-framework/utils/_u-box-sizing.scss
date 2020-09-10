@@ -1,5 +1,0 @@
-$u-box-sizing-types: (
-  content-box,
-) !default;
-
-@include generate-utils(box-sizing, $u-box-sizing-types);

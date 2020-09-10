@@ -1,7 +1,0 @@
-@function font-size($keys, $function-name: "font-size") {
-  @return get($font-sizes, $keys, $function-name);
-}
-
-@function fs($keys) {
-  @return font-size($keys, "fs");
-}

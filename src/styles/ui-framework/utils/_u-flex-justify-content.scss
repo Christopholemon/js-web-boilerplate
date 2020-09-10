@@ -1,7 +1,0 @@
-$u-flex-justify-content-types: (
-  center,
-  flex-end,
-  space-between,
-) !default;
-
-@include generate-utils((flex-justify-content, justify-content), $u-flex-justify-content-types);

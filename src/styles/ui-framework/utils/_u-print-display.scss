@@ -1,5 +1,0 @@
-$u-print-display-types: (
-  none,
-) !default;
-
-@include generate-utils(display, $u-print-display-types, true);

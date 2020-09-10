@@ -1,8 +1,0 @@
-$u-widths: 10, 20, 25, 30, 33.3333, 40, 50, 60, 66.6666, 70, 75, 80, 90, 100 !default;
-
-@each $width in $u-widths {
-  %u-width-#{floor($width)},
-  .u-width-#{floor($width)} {
-    width: percentage($width / 100) if($important, !important, null);
-  }
-}

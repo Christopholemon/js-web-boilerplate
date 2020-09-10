@@ -1,8 +1,0 @@
-$u-text-align-types: (
-  center,
-  justify,
-  left,
-  right,
-) !default;
-
-@include generate-utils(text-align, $u-text-align-types);

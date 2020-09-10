@@ -1,5 +1,0 @@
-$u-flex-align-self-types: (
-  center, // u-flex-align-self-center
-) !default;
-
-@include generate-utils((flex-align-self, align-self), $u-flex-align-self-types);

@@ -1,9 +1,0 @@
-.u-aspect-16-9 {
-  position: relative;
-
-  &::before {
-    content: "";
-    display: block;
-    padding-bottom: percentage(9 / 16);
-  }
-}
