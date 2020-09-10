@@ -30,7 +30,7 @@ function HelloWorld() {
 
   return (
     <>
-      <h3>
+      <h3 className="home-title">
         HELLO WORLD@#$%
       </h3>
       <p>Here is some tests using hooks</p>
