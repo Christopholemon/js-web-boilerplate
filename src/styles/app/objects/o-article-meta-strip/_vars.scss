@@ -1,0 +1,7 @@
+@mixin o-article-meta-strip-hero {
+  .hero-wrap + & {
+    // Not ideal, but ITIOT I don't want to rework all hero margins
+    @include responsive-tween(rem(-20), rem(-32), margin-top);
+  }
+}
+

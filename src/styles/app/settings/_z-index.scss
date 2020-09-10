@@ -1,0 +1,46 @@
+$z-indexes: (
+  primary: (
+    above-inherit: (),
+    o-hero-gradient: (),
+    above-o-hero-gradient: (),
+    page-title--filter-dropdown-open: (),
+    l-content: (),
+    package-card: (
+      hero__image,
+      hero__overlay,
+      hero__content
+    ),
+    audio-player: (
+      audio-player__percentage-played--grey,
+      audio-player__percentage-played,
+      audio-player__slider-range,
+    ),
+    hero-player-profile-image: (),
+    club-card-content__inner: (),
+    card-fallback__svg: (),
+    card-team-mate__hover-angle: (),
+    card-team-mate__image: (),
+    match-centre-event__hero: (),
+    ladder__item--fixed: (),
+    draw-overview-card--link: (),
+    draw-overview-loader: (),
+    filter--round: (),
+    filter: (),
+    filter-ladder: (),
+    page-title: (),
+    loading-indicator: (),
+    stickio: (),
+    stickio-tabs: (),
+    stickio-match-header: (),
+    keyboard-navigation: (),
+  ),
+  secondary: (
+    navigation
+  ),
+  lightbox: (
+    close,
+    lightbox__footer-toggle
+  ),
+  usabilla: (),
+  alert-modal: ()
+);

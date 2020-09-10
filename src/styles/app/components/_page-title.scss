@@ -1,0 +1,69 @@
+.page-title {
+  align-items: center;
+  background-color: c(white);
+  display: flex;
+  padding: rem(10) 0;
+  position: relative;
+  text-transform: uppercase;
+  z-index: z(primary page-title);
+
+  @include mq(960px) {
+    height: rem(70); // TODO: look at a better way to implement breadcrumb position
+  }
+
+  .g-filter-dropdown-open & {
+    z-index: z(primary page-title--filter-dropdown-open);
+  }
+
+  &::before {
+    background: linear-gradient(to bottom, rgba(c(black), 0.04) 10%, rgba(c(black), 0) 100%);
+    content: "";
+    height: rem(11);
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+}
+
+.page-title__heading {
+  @include responsive-tween(fs(24), (960px: fs(32)));
+
+  letter-spacing: rem(2);
+  line-height: (36 / 24);
+  position: relative;
+
+  @include mq(960px) {
+    line-height: (38 / 32);
+  }
+
+  .page-title--on-dark & {
+    color: c(white);
+  }
+}
+
+.page-title__heading-slash {
+  @include responsive-tween(rem(-4), rem(-6), margin-left);
+
+  font-weight: fw(400);
+}
+
+.page-title-breadcrumb__item {
+  @include responsive-tween(fs(12), fs(14));
+  @include responsive-tween(rem(7), rem(0), top);
+
+  font-weight: fw(500);
+  letter-spacing: rem(2);
+  position: relative;
+}
+
+.page-title__btyb-image {
+  width: auto; // ie fix for pngs
+
+  &[src*=".svg"] {
+    .browser-ie & {
+      width: 100%;
+    }
+  }
+}

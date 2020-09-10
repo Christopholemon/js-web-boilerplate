@@ -1,0 +1,18 @@
+.list-card {
+  padding: rem(20) rem(16) rem(6);
+
+  @include mq(600px) {
+    padding: rem(30) rem(28) rem(16);
+  }
+}
+
+.list-card__item {
+  font-size: fs(14);
+  line-height: (22 / 14);
+  margin-bottom: s(small);
+
+  @include mq(600px) {
+    font-size: fs(16);
+    line-height: (22 / 16);
+  }
+}

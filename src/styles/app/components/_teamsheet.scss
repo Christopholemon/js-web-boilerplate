@@ -1,0 +1,36 @@
+.teamsheet {
+  padding-bottom: s(small);
+}
+
+.teamsheet-group {
+  margin: 0 s(small);
+  padding: s(small) 0 s(x-small);
+  text-align: center;
+
+  @include mq(768px) {
+    padding: s(small) 0;
+  }
+}
+
+.teamsheet-group--last {
+  padding-bottom: 0;
+}
+
+.teamsheet-group__title {
+  font-size: fs(18);
+  letter-spacing: rem(0.8);
+  margin-bottom: s(small);
+  text-transform: uppercase;
+
+  @include mq(768px) {
+    font-size: fs(22);
+  }
+}
+
+.teamsheet-group__title--sub {
+  font-size: fs(16);
+
+  @include mq(768px) {
+    font-size: fs(20);
+  }
+}

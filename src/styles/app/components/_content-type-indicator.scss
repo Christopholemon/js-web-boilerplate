@@ -1,0 +1,14 @@
+.content-type-indicator {
+  align-items: baseline;
+  color: c(white);
+  display: inline-flex;
+  font-size: fs(11);
+  line-height: (24 / 11);
+  padding: 0 rem(8) 0 rem(4);
+}
+
+.content-type-indicator__svg {
+  height: rem(9);
+  margin-right: rem(4);
+  width: rem(14);
+}

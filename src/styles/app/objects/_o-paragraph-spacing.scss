@@ -1,0 +1,5 @@
+.o-paragraph-spacing {
+  p + p {
+    margin-top: rem(13);
+  }
+}

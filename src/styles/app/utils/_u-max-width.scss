@@ -1,0 +1,7 @@
+.u-max-width-350 {
+  max-width: rem(350) if($important, !important, null);
+}
+
+.u-max-width-900 {
+  max-width: rem(900) if($important, !important, null);
+}

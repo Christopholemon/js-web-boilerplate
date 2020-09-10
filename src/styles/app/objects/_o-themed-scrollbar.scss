@@ -1,0 +1,28 @@
+.o-themed-scrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+@each $theme, $properties in $site-themes {
+  .browser-windows .t-#{$theme} .o-themed-scrollbar {
+    &::-webkit-scrollbar-track {
+      background-color: t($theme primary);
+      border-radius: rem(10);
+      opacity: 0.8;
+    }
+
+    &::-webkit-scrollbar {
+      background-color: t($theme primary);
+      height: rem(8);
+      opacity: 0.8;
+      width: rem(8);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: t($theme secondary);
+      border-radius: rem(4);
+      box-shadow: inset 0 0 rem(6) t($theme secondary);
+      height: rem(8);
+      width: rem(8);
+    }
+  }
+}

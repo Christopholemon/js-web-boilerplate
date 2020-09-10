@@ -1,0 +1,47 @@
+// UI Framework Helpers
+@import "ui-framework/helpers";
+
+// Project Functions
+@import "app/functions/all";
+
+// Project Settings
+@import "app/settings/all";
+
+// UI Framework Core
+@import "ui-framework/core";
+
+// Project Styles
+@import "app/mixins/all";
+@import "app/animations/all";
+@import "app/base/all";
+@import "app/objects/all";
+@import "app/layout/all";
+@import "app/components/all";
+@import "app/pages/all";
+@import "app/scopes/all";
+@import "app/vendor/all";
+@import "app/utils/all";
+@import "app/legacy/all";
+
+// maybe @use intead, for long term goodness
+
+html {
+  font-size: fs(16);
+  color: c(blue);
+  margin: 5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+  border: 20px solid c(green);
+  padding: rem(2);
+}

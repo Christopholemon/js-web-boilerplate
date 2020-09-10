@@ -1,0 +1,25 @@
+.card-link {
+  align-items: center;
+  color: c(gray 222222);
+  display: flex;
+  font-size: fs(14);
+  justify-content: center;
+  letter-spacing: rem(1);
+  line-height: 1;
+  padding: s(small) s(x-small);
+  text-transform: uppercase;
+
+  @include mq(375px) {
+    padding: s(small);
+  }
+
+  &:last-of-type {
+    border-right: none;
+  }
+}
+
+.card-link__svg {
+  height: rem(10);
+  margin-left: rem(4);
+  width: rem(10);
+}

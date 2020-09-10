@@ -1,0 +1,18 @@
+.o-team-form-icon {
+  align-items: center;
+  background: c(gray 999999);
+  border-radius: 50%;
+  color: c(white);
+  display: inline-flex;
+  font-size: fs(15);
+  font-weight: fw(500);
+  height: rem(26);
+  justify-content: center;
+  width: rem(26);
+}
+
+.o-team-form-icon--lost {
+  background: none;
+  border: rem(1) solid;
+  color: c(gray 999999);
+}

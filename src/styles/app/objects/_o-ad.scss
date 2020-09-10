@@ -1,0 +1,24 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+.o-ad {
+  box-sizing: content-box;
+  margin: auto;
+  opacity: 1;
+  overflow: hidden;
+  transition: all ease 0.5s;
+
+  &.is-pristine {
+    height: 0 if($important, !important, null);
+    margin-bottom: 0 if($important, !important, null);
+    opacity: 0;
+    padding-bottom: 0 if($important, !important, null);
+  }
+}
+
+.o-ad-dummy {
+  height: rem(1000);
+  left: rem(-10000);
+  position: absolute;
+  top: rem(-10000);
+  width: rem(1000);
+}

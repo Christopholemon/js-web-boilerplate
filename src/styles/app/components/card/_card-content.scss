@@ -1,0 +1,333 @@
+$card-content-gutter: s(small);
+$card-content-gutter-large: s(medium);
+$card-content-gutter-small: s(x-small);
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $card-content-gutter;
+  position: relative;
+
+  .card--branded & {
+    border-bottom: rem(4) solid transparent;
+  }
+
+  .card--type-default & {
+    min-height: rem(150);
+  }
+
+  .card--type-transparent & {
+    min-height: rem(130);
+    padding: $card-content-gutter 0;
+  }
+
+  .card--type-feature & {
+    // This makes feature live stream cards have the semi-transparent c(gray 111111) colour
+    // It doesn't follow our standards, but I want to group this awful hack of a solution together
+    &.u-bg-color-gray-111111.u-color-gray-111111 {
+      background-color: transparent;
+
+      &::after {
+        background: currentColor;
+        bottom: 0;
+        content: "";
+        left: 0;
+        opacity: 0.95;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      > * {
+        z-index: z(primary above-inherit);
+      }
+    }
+
+    @include mq(960px) {
+      min-height: rem(180);
+    }
+  }
+
+  .card--type-compact & {
+    padding: ($card-content-gutter / 3) ($card-content-gutter-large / 2) ($card-content-gutter-large / 2);
+    position: static;
+    width: 100%;
+  }
+
+  .card--type-compact-below-600 & {
+    @include mq(599, max-width) {
+      min-height: 0;
+      padding: ($card-content-gutter / 3) ($card-content-gutter-large / 2) ($card-content-gutter-large / 2);
+      width: 100%;
+    }
+  }
+
+  .card--type-compact-and-subdued-below-768 & {
+    @include mq(767px, max-width) {
+      min-height: 0;
+      padding: ($card-content-gutter / 3) ($card-content-gutter-large / 2) ($card-content-gutter-large / 2);
+      width: 100%;
+    }
+  }
+
+  .card--type-feature & {
+    @include responsive-tween(75%, 65%, width);
+
+    background: rgba(c(white), 0.95);
+    bottom: rem(32);
+    left: rem(32);
+    position: absolute;
+  }
+
+  .card--type-block-topic.card--type-feature & {
+    @include mq(768px) {
+      padding: $card-content-gutter-large;
+    }
+  }
+
+  .card--type-instagram & {
+    align-items: center;
+    background: c(white);
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+
+  .card--type-match & {
+    min-height: rem(99);
+  }
+}
+
+.card-content-overlay {
+  bottom: 100%;
+  display: flex;
+  left: 0;
+  position: absolute;
+
+  .card--type-compact & {
+    bottom: 0;
+  }
+
+  .card--type-compact-below-600 & {
+    @include mq(599, max-width) {
+      bottom: 0;
+      left: 100%;
+    }
+  }
+
+  .card--type-compact-and-subdued-below-768 & {
+    @include mq(767px, max-width) {
+      bottom: 0;
+      left: 100%;
+    }
+  }
+}
+
+.card-content-overlay--social {
+  align-items: center;
+  border-top-right-radius: rem(4);
+  display: flex;
+  height: rem(32);
+  justify-content: center;
+  overflow: hidden;
+  width: rem(32);
+}
+
+.card-content-overlay__svg {
+  fill: c(white);
+
+  .card--type-twitter & {
+    height: rem(23);
+    width: rem(23);
+  }
+
+  .card--type-instagram & {
+    height: rem(32);
+    width: rem(32);
+  }
+}
+
+.card-content__topic {
+  @include responsive-tween(fs(10), (960px: fs(12)));
+
+  display: inline-block;
+  letter-spacing: rem(1);
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include mq(960px) {
+    letter-spacing: rem(1.5);
+  }
+
+  .card--type-block-topic & {
+    @include responsive-tween(fs(12), (960px: fs(14)));
+
+    display: block;
+    letter-spacing: rem(0.88);
+    line-height: normal;
+    margin: ($card-content-gutter * -1) ($card-content-gutter * -1) (s(x-small) * -1);
+    padding: rem(9) $card-content-gutter rem(8);
+  }
+
+  .card--type-block-topic.card--type-compact-below-600 & {
+    @include mq(599, max-width) {
+      margin-top: ($card-content-gutter-small * -1);
+    }
+  }
+
+  .card--type-block-topic.card--type-feature & {
+    @include mq(768px) {
+      margin: ($card-content-gutter-large * -1) ($card-content-gutter-large * -1) (s(x-small) * -1);
+      padding-left: $card-content-gutter-large;
+      padding-right: $card-content-gutter-large;
+    }
+  }
+
+  .card--type-twitter & {
+    color: c(gray 222222) if($important, !important, null);
+    font-size: fs(14);
+    font-weight: fw(700);
+    letter-spacing: rem(1) if($important, !important, null);
+    margin-bottom: rem(7);
+    text-transform: none;
+  }
+}
+
+.card-content__topic--sub {
+  color: c(gray 888888);
+  margin-left: s(small);
+}
+
+.card-content__text {
+  color: c(core text-dark);
+  display: -webkit-box;
+  font-size: fs(18);
+  font-weight: fw(500);
+  line-height: (22.5 / 18); // Our desired is 22, but Chrome's rounding issues means we can't
+  margin-bottom: rem(6);
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  .card--type-block-topic & {
+    font-size: fs(16);
+    line-height: (22 / 16);
+    margin-top: $card-content-gutter;
+  }
+
+  .card--type-block-topic.card--type-feature & {
+    @include mq(768px) {
+      margin-top: $card-content-gutter-large;
+    }
+  }
+
+  // NB. Below .card--type-block-topic so compact block topic cards inherit these sizes
+  .card--type-compact &,
+  .card--type-compact-below-600 &,
+  .card--type-compact-and-subdued-below-768 & {
+    @include mq(599px, max-width) {
+      font-size: fs(14);
+      line-height: (18 / 14);
+    }
+  }
+
+  .card--type-feature:not(.card--type-block-topic) & {
+    @include mq(768px) {
+      font-size: fs(26);
+      line-height: (32 / 26);
+    }
+  }
+
+  // TODO: Perhaps a better selector should determine this?
+  .card--type-text &,
+  .card--type-transparent & {
+    -webkit-line-clamp: 2;
+  }
+
+  .card--type-twitter & {
+    color: c(gray 444444);
+    font-size: fs(14);
+    font-weight: fw(400);
+    line-height: (22 / 14);
+    max-height: rem(63); // TODO: This can leave cut-off lines in non-webkit browsers. Need server-side truncation of long text, then remove this.
+  }
+
+  .card--type-twitter.card--type-feature & {
+    @include mq(768px) {
+      font-size: fs(16);
+      line-height: (24 / 16);
+      max-height: rem(70);
+    }
+  }
+}
+
+.card-content__text--sub {
+  font-size: fs(14);
+  font-weight: fw(400);
+
+  @include mq(768px) {
+    font-size: fs(16);
+  }
+
+  .card--type-compact &,
+  .card--type-compact-below-600 &,
+  .card--type-compact-and-subdued-below-768 & {
+    @include mq(599px, max-width) {
+      font-size: fs(14);
+    }
+  }
+}
+
+.card-content__instagram-username {
+  @include responsive-tween(fs(12), (960px: fs(14)));
+  color: c(gray 222222);
+  font-weight: fw(500);
+  margin-left: auto;
+  padding-right: rem(10);
+}
+
+.card-content__sponsor,
+.card-content__timestamp {
+  color: c(gray 767676);
+  font-size: fs(11);
+  letter-spacing: rem(1);
+  line-height: 1;
+
+  .card--type-live-stream &,
+  .card--type-transparent &,
+  .card--type-video-hub & {
+    color: c(gray d8d8d8) if($important, !important, null);
+  }
+}
+
+.card-content__sponsor {
+  color: c(gray 444444);
+  letter-spacing: normal;
+  line-height: (14 / 12);
+
+  @include mq(600px) {
+    font-size: fs(12);
+  }
+}
+
+.card-content__action {
+  font-size: fs(14);
+  font-weight: fw(500);
+  line-height: (18 / 14);
+  text-transform: uppercase;
+}
+
+.card-content__action-svg {
+  height: rem(13);
+  margin-left: s(x-small);
+  width: rem(13);
+}
+
+.card-content-topic-spacing {
+  margin-bottom: s(x-small);
+}

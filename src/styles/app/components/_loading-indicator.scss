@@ -1,0 +1,45 @@
+.loading-indicator {
+  align-items: center;
+  color: c(gray 888888);
+  display: flex;
+  height: rem(80);
+  justify-content: center;
+  position: absolute;
+  top: rem(70);
+  width: rem(80);
+  z-index: z(primary loading-indicator);
+}
+
+.loading-indicator--position-middle {
+  left: 50%;
+  margin-left: rem(-40);
+  margin-top: rem(-40);
+  top: 50%;
+}
+
+.loading-indicator--position-center {
+  left: 50%;
+  margin-left: rem(-40);
+}
+
+.loading-indicator--position-left {
+  right: 100%;
+}
+
+.loading-indicator--position-right {
+  left: 100%;
+}
+
+.loading-indicator--position-static {
+  position: static;
+}
+
+.loading-indicator--top-0 {
+  top: 0;
+}
+
+.loading-indicator__svg {
+  fill: currentColor;
+  height: rem(40);
+  width: rem(40);
+}

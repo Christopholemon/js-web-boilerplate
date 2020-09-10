@@ -1,0 +1,109 @@
+.donut-chart {
+  height: rem(130);
+  position: relative;
+  transition: height, width 0.25s ease-in-out;
+  width: rem(130);
+
+  @include mq(360px) {
+    height: rem(160);
+    width: rem(160);
+  }
+
+  @include mq(600px) {
+    height: rem(184);
+    width: rem(184);
+  }
+}
+
+.donut-chart--large {
+  height: rem(192);
+  width: rem(192);
+
+  @include mq(768px) {
+    height: rem(224);
+    width: rem(224);
+  }
+}
+
+.donut-chart--half-size {
+  height: rem(65);
+
+  @include mq(360px) {
+    height: rem(80);
+    width: rem(160);
+  }
+
+  @include mq(600px) {
+    height: rem(92);
+    width: rem(184);
+  }
+}
+
+.donut-chart-svg {
+  fill: transparent;
+  stroke-width: 3.75;
+}
+
+.donut-chart-svg__segment {
+  fill: none if($important, !important, null);
+  stroke: currentColor;
+  transition: stroke-dashoffset 0.25s ease-in-out;
+}
+
+.donut-chart-svg__text {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  .donut-chart--half-size & {
+    bottom: 0;
+    top: auto;
+    transform: translateX(-50%);
+  }
+}
+
+.donut-chart__text-caption {
+  font-size: fs(16);
+  letter-spacing: rem(2);
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.donut-chart-stat__title {
+  font-size: fs(20);
+  line-height: (24 / 20);
+  margin-bottom: rem(6);
+  text-transform: uppercase;
+}
+
+.donut-chart-stat__value {
+  color: c(gray 222222);
+  flex-grow: 1;
+  font-size: fs(26);
+
+  @include mq(360px) {
+    font-size: fs(36);
+  }
+
+  .donut-chart--half-size & {
+    @include responsive-tween(fs(20), (768px: fs(32)));
+  }
+}
+
+.donut-chart-stat__value--sup {
+  font-size: fs(14);
+  line-height: 1;
+  position: absolute;
+  top: 20%;
+  vertical-align: top;
+
+  @include mq(360px) {
+    font-size: fs(16);
+  }
+}
+
+.donut-chart__unit {
+  font-size: fs(20);
+  font-weight: fw(400);
+}

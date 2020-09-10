@@ -1,0 +1,233 @@
+$content-hero-item-overlapping-button-value: rem(40);
+.content-hero-wrapper {
+  .top-banner--sticky + & {
+    padding-top: $top-banner-padding;
+  }
+}
+
+.content-hero {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include mq(960px) {
+    flex-direction: row;
+  }
+
+  &.content-hero--items-3 {
+    @include mq(960px) {
+      flex-direction: column;
+    }
+
+    @include mq(1200px) {
+      flex-direction: row;
+    }
+  }
+}
+
+.content-hero__aside {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq(960px) {
+    flex-direction: column;
+    width: (560 / 1736) * 100%;
+  }
+
+  .content-hero--items-3 & {
+    @include mq(960px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: em(960px)) and (max-width: em(1199px)) {
+      width: 100%;
+    }
+  }
+}
+
+.content-hero-item {
+  color: c(white);
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: (9 / 16) * 100%;
+  }
+}
+
+.content-hero-item--overlapping-button-until-767 {
+  @include mq(767px, max-width) {
+    padding-bottom: $content-hero-item-overlapping-button-value;
+
+    &::before {
+      // for nrl tv show hero overlap on mobile
+      bottom: $content-hero-item-overlapping-button-value;
+    }
+  }
+}
+
+.content-hero-item--1 {
+  @include mq(960px) {
+    width: (1176 / 1736) * 100%;
+
+    .content-hero--items-1 & {
+      width: 100%;
+    }
+  }
+
+  .content-hero--items-3 & {
+    @media (min-width: em(960px)) and (max-width: em(1199px)) {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    padding-bottom: (448 / 600) * 100%;
+
+    @media (min-width: em(561px)) and (max-width: em(959px)) {
+      padding-bottom: (540 / 960) * 100%;
+    }
+
+    @include mq(960px) {
+      padding-bottom: (630 / 1176) * 100%;
+    }
+
+    .content-hero--items-1 & {
+      @include mq(960px) {
+        padding-bottom: (630 / 1736) * 100%;
+      }
+    }
+  }
+}
+
+.content-hero-item--2 {
+  &::after {
+    .content-hero--items-2 & {
+      @media (min-width: em(561px)) and (max-width: em(959px)) {
+        padding-bottom: (398 / 960) * 100%;
+      }
+
+      @include mq(960px) {
+        padding-bottom: (560 / 630) * 100%;
+      }
+    }
+  }
+}
+
+.content-hero-item--aside {
+  flex-basis: rem(315);
+  flex-grow: 1;
+
+  @include mq(960px) {
+    flex-basis: auto;
+  }
+
+  .content-hero--items-3 & {
+    @include mq(960px) {
+      flex-basis: rem(315);
+    }
+  }
+}
+
+.content-hero-item__image {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all ease 0.15s;
+  width: 100%;
+
+  .content-hero-item:not(.content-hero-item--overlapping-button-until-767):focus &,
+  .content-hero-item:not(.content-hero-item--overlapping-button-until-767):hover & {
+    transform: scale(1.05);
+  }
+
+  .content-hero-item--overlapping-button-until-767 & {
+    @include mq(767px, max-width) {
+      height: calc(100% - #{$content-hero-item-overlapping-button-value});
+    }
+  }
+}
+
+.content-hero-item__content {
+  bottom: 0;
+  padding: s(small);
+  position: absolute;
+  z-index: z(primary above-o-hero-gradient);
+
+  @include mq(768px) {
+    padding: s(medium);
+  }
+
+  .content-hero-item--1 & {
+    @include mq(960px) {
+      padding: rem(32);
+      width: 85%;
+    }
+  }
+
+  .content-hero--subdued & {
+    padding: 0;
+    width: 90%;
+  }
+}
+
+.content-hero-item__heading {
+  color: c(white);
+  font-size: fs(24);
+  letter-spacing: rem(1);
+  line-height: (29 / 24);
+
+  @include mq(768px) {
+    font-size: fs(32);
+    line-height: (38 / 32);
+  }
+}
+
+.content-hero-item__text {
+  @include responsive-tween(fs(24), fs(26));
+
+  align-items: center;
+  font-weight: fw(700);
+  line-height: (28 / 24);
+  margin-top: rem(12);
+
+  .content-hero-item--1 & {
+    @include responsive-tween(fs(24), fs(48));
+  }
+
+  .content-hero--subdued & {
+    @include responsive-tween(fs(14), fs(22));
+
+    font-weight: fw(500);
+
+    @include mq(1200px) {
+      width: 60%;
+    }
+  }
+}
+
+.content-hero-item__svg {
+  height: rem(80);
+  margin: 0 rem(20);
+  width: rem(80);
+}
+
+.content-hero-item__button {
+  margin-top: rem(20);
+
+  @include mq(768px) {
+    margin-top: rem(32); // TODO: Add a rem(32) spacing and possibly use responsive utils
+  }
+}
+
+.content-hero-item__update-time {
+  color: c(white);
+  display: inline-block;
+  line-height: 1;
+  margin: rem(10) rem(5) 0 0;
+  padding: rem(5);
+}

@@ -1,0 +1,372 @@
+.club-card {
+  color: c(white);
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &.card__overlay-root {
+    position: absolute;
+  }
+}
+
+.club-card--player-profile {
+  color: c(gray 222222);
+}
+
+.club-card__angle {
+  left: 50%;
+}
+
+.club-card__mask {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+
+  .club-card--historical-profile & {
+    height: 0;
+    padding-top: 100%;
+  }
+}
+
+.club-card-mask__logo {
+  visibility: hidden;
+
+  .club-card--compact-below-600 & {
+    @include mq(599px, max-width) {
+      height: auto;
+      left: 0;
+      max-width: none; // needed for IE 11 to prevent squishing on 3 and 4 cards-per-row layout - otherwise harmless
+      opacity: 0.05;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      visibility: visible;
+      width: 100%; // needed for IE 11 - otherwise harmless
+    }
+  }
+
+  .club-card--historical-profile & {
+    height: 100%;
+    left: 50%;
+    opacity: 0.15;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -14%);
+    visibility: visible;
+    width: 100%;
+  }
+}
+
+.club-card-content {
+  padding: s(small);
+  width: 100%;
+
+  .club-card--search & {
+    padding: rem(32) s(small) rem(16);
+  }
+
+  .club-card--search.club-card--compact-below-600 & {
+    @include mq(599px, max-width) {
+      padding: s(x-small) 0 0;
+    }
+  }
+}
+
+.club-card-content__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  position: relative;
+  z-index: z(primary club-card-content__inner);
+
+  .club-card--search & {
+    height: 100%; // Needed for IE
+    width: 100%; // Needed for IE
+  }
+
+  .club-card--historical-profile & {
+    border: rem(1) solid;
+  }
+}
+
+.club-card__position {
+  font-weight: fw(500);
+  padding-top: rem(4);
+  text-align: center;
+
+  @include mq(960px) {
+    font-size: fs(20);
+    line-height: 1;
+    padding-top: s(x-small);
+  }
+
+  .club-card--historical-profile & {
+    padding-bottom: rem(50);
+
+    @include mq(768px) {
+      padding-bottom: rem(10);
+      padding-top: rem(10);
+    }
+
+    @include mq(960px) {
+      padding-bottom: rem(20);
+    }
+
+    @include mq(1200px) {
+      padding-bottom: rem(50);
+    }
+
+    @include mq(1400px) {
+      padding-bottom: rem(100);
+    }
+  }
+}
+
+.club-card__title {
+  color: c(white);
+  font-size: fs(22);
+  letter-spacing: rem(0.9);
+  text-align: center;
+  width: 100%;
+
+  &.card-themed-hero__name {
+    letter-spacing: 0;
+    max-width: 100%; //Needed for IE
+    padding-bottom: s(small);
+    padding-top: 0;
+  }
+
+  .club-card--historical-profile & {
+    line-height: (35 / 30);
+    padding-top: rem(50);
+
+    @include mq(768px) {
+      padding-top: rem(10);
+    }
+
+    @include mq(960px) {
+      padding-top: rem(20);
+    }
+
+    @include mq(1200px) {
+      padding-top: rem(50);
+    }
+
+    @include mq(1400px) {
+      padding-top: rem(100);
+    }
+  }
+
+  .club-card--player-profile & {
+    color: inherit;
+    font-weight: fw(700);
+    letter-spacing: 0;
+
+    @include mq(960px) {
+      padding-top: 0;
+    }
+
+    @include mq(1080px) {
+      padding-top: s(small);
+    }
+  }
+
+  .club-card--compact-below-600 & {
+    @include mq(599px, max-width) {
+      padding-bottom: s(x-small);
+    }
+  }
+}
+
+.club-card__title--alt {
+  @include responsive-tween(fs(24), fs(36));
+
+  line-height: (35 / 30);
+
+  @include mq(768px) {
+    padding-left: s(x-small);
+    padding-right: s(x-small);
+  }
+
+  .club-card--connect & {
+    font-size: fs(24);
+    line-height: 1;
+  }
+}
+
+.club-card__logo-svg {
+  height: rem(165);
+  margin: s(x-small) 0;
+  width: rem(165);
+
+  .club-card--connect & {
+    height: rem(100);
+    width: rem(100);
+  }
+
+  .club-card--search & {
+    flex-grow: 1;
+    height: auto;
+    max-height: 60%; // ensure it fits when card is 33% or 25% width
+    width: auto;
+  }
+
+  .club-card--compact-below-600 & {
+    @include mq(599px, max-width) {
+      height: rem(72);
+      width: auto;
+    }
+  }
+
+  .club-card--club-profile & {
+    @include responsive-tween(rem(185), rem(351), height width);
+  }
+
+  .club-card--player-profile & {
+    @include responsive-tween(rem(150), rem(250), height width);
+    padding: s(x-small);
+
+    @include mq(768px) {
+      height: rem(120);
+      width: rem(120);
+    }
+
+    @include responsive-tween((960px: rem(150)), rem(250), width height); // sass-lint:disable-line mixins-before-declarations
+  }
+}
+
+.club-card__text-svg {
+  height: rem(24);
+  margin-top: s(medium);
+  width: 100%;
+}
+
+.club-card-footer {
+  display: flex;
+  justify-content: center;
+  max-width: rem(442);
+  padding-bottom: s(small);
+  padding-top: s(x-small);
+  width: 100%;
+
+  @include mq(375px) {
+    padding-left: s(x-small);
+    padding-right: s(x-small);
+  }
+
+  .club-card--club-profile & {
+    padding-bottom: s(medium);
+
+    @include mq(768px) {
+      min-width: 100%;
+    }
+  }
+
+  .club-card--player-profile & {
+    padding-top: rem(4);
+
+    @include mq(960px) {
+      padding-top: s(x-small);
+    }
+
+    @include mq(1080px) {
+      padding-bottom: s(small);
+    }
+  }
+}
+
+.club-card-footer__link {
+  align-items: center;
+  color: c(white);
+  display: flex;
+  font-size: fs(14);
+  font-weight: fw(500);
+  letter-spacing: rem(1);
+  line-height: (21 / 14);
+
+  &:nth-child(2) {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .club-card--player-profile & {
+    color: inherit;
+  }
+
+  @include mq(420px) {
+    font-size: fs(16);
+  }
+
+  @include mq(375px) {
+    &:nth-child(2) {
+      margin-left: 6%;
+      margin-right: 6%;
+    }
+  }
+}
+
+.club-card-footer__svg {
+  @include responsive-tween((375px: rem(11)), (660px: rem(16)), height width); // Invision has 10 to 14 but 11 to 16 matches
+
+  margin-right: rem(2);
+}
+
+.club-card-footer__svg--positioned-right {
+  margin-left: s(x-small);
+  margin-right: 0;
+
+  @include mq(420px) {
+    margin-bottom: rem(2);
+    margin-left: rem(13);
+  }
+}
+
+.club-card-inductee {
+  letter-spacing: rem(2);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.club-card-inductee__label {
+  font-size: fs(14);
+  line-height: (18 / 14);
+
+  @include mq(960px) {
+    font-size: fs(16);
+    line-height: (20 / 16);
+  }
+}
+
+.club-card-inductee__number {
+  font-size: fs(26);
+  line-height: (32 / 26);
+
+  @include mq(960px) {
+    font-size: fs(36);
+    line-height: (43 / 36);
+  }
+}
+
+.club-card-members {
+  color: c(gray eeeeee);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: s(small);
+  padding-top: s(x-small);
+  text-align: center;
+  width: 100%;
+
+  @include mq(375px) {
+    padding-left: spacing(x-small);
+    padding-right: spacing(x-small);
+  }
+}
+
+.club-card-members__value {
+  font-size: fs(32);
+  font-weight: fw(700);
+  line-height: (62 / 50);
+}

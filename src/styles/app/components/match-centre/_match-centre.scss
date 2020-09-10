@@ -1,0 +1,15 @@
+.match-centre__timeline {
+  margin: 0 auto;
+  max-width: rem(640);
+  position: relative;
+
+  &:before {
+    border-left: rem(4) solid c(gray dcdcdc);
+    content: "";
+    display: block;
+    height: 90%; //TODO temp fix for now
+    left: 50%;
+    margin-left: rem(6);
+    position: absolute;
+  }
+}

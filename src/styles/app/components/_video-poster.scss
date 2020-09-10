@@ -1,0 +1,26 @@
+.video-poster {
+  z-index: z(lightbox);
+}
+
+.video-poster__button {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: z(lightbox);
+}
+
+.video-poster__play-icon {
+  &::before {
+    font-size: rem(64);
+  }
+}
+
+.video-poster__loading-indicator {
+  transform: scale(1.5);
+}
+
+.video-poster__image {
+  min-height: 100%;
+  width: 100%;
+}

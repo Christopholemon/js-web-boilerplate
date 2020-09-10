@@ -1,0 +1,118 @@
+$compact-image-width: 140;
+
+.card-hero {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  .card--type-compact & {
+    flex-shrink: 0;
+    width: rem($compact-image-width);
+  }
+
+  .card--type-compact-below-600 & {
+    @include mq(599, max-width) {
+      flex-shrink: 0;
+      width: rem($compact-image-width);
+    }
+  }
+
+  .card--type-compact-and-subdued-below-768 & {
+    @include mq(767px, max-width) {
+      flex-shrink: 0;
+      width: rem($compact-image-width);
+    }
+  }
+
+  .card--type-feature & {
+    flex-grow: 1;
+  }
+}
+
+.card-hero__background {
+  width: 100%;
+
+  .card--type-feature & {
+    align-self: stretch;
+  }
+
+  // https://jdsteinbach.com/css/firefox-flexbox-bug/
+  // https://connect.microsoft.com/IE/feedback/details/2157896/edge-ignores-padding-top-padding-bottom-for-flex-children
+  &::before {
+    content: "";
+    display: block;
+
+    .card--type-default & {
+      padding-bottom: (301 / 626) * 100%;
+    }
+
+    .card--type-compact & {
+      padding-bottom: (116 / $compact-image-width) * 100%;
+    }
+
+    .card--type-compact-below-600 & {
+      @include mq(599, max-width) {
+        padding-bottom: (116 / $compact-image-width) * 100%;
+      }
+    }
+
+    .card--type-compact-and-subdued-below-768 & {
+      @include mq(767px, max-width) {
+        padding-bottom: (116 / $compact-image-width) * 100%;
+      }
+    }
+
+    .card--type-feature &,
+    .card--type-instagram & {
+      padding-bottom: 100%;
+    }
+  }
+}
+
+.card-hero__content {
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .card--type-feature & {
+    justify-content: center;
+  }
+}
+
+.card-hero__content--image {
+  transform: scale(1.02);
+
+  .card:hover &,
+  .card:focus & {
+    transform: scale(1.07);
+  }
+}
+
+.card-hero__image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+
+  .card--type-feature & {
+    max-width: none;
+    width: auto;
+
+    .browser-ie & {
+      max-width: 100%; // TODO: this fix doesnt work but will need to revist
+    }
+  }
+}
+
+.card-hero__twitter-profile-image {
+  border-radius: 50%;
+  height: rem(110);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: rem(110);
+}

@@ -1,0 +1,24 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+.card-title__header {
+  @include responsive-tween(fs(20), fs(24));
+
+  font-family: ff(rl2); // .s-cms-content requirement
+  line-height: (28 / 22);
+  padding: rem(11) rem(14);
+
+  @include mq(768px) {
+    padding: rem(13) rem(15);
+  }
+}
+
+.card-title__blurb {
+  @include responsive-tween(fs(18), fs(20));
+
+  line-height: (32 / 18);
+  padding: 0 rem(14) rem(6);
+
+  @include mq(768px) {
+    padding-top: rem(6);
+  }
+}

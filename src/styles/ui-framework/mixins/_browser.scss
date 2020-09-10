@@ -1,0 +1,18 @@
+$m-browser-support-edge: true !default;
+$m-browser-support-ie11: true !default;
+
+@mixin browser-edge {
+  @if ($m-browser-support-edge == true) {
+    @supports (-ms-user-select: none) {
+      @content;
+    }
+  }
+}
+
+@mixin browser-ie11 {
+  @if ($m-browser-support-ie11 == true) {
+    @media (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+    }
+  }
+}

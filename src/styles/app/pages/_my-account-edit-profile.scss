@@ -1,0 +1,12 @@
+// TODO: Make a badge component
+.my-account__verified-badge {
+  background-color: t(nrl secondary);
+  color: c(white);
+  font-size: fs(10);
+  font-weight: fw(500);
+  letter-spacing: rem(0.83);
+  line-height: (15 / 10);
+  margin-top: rem(19);
+  padding: 0 rem(3);
+  text-transform: uppercase;
+}

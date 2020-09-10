@@ -1,0 +1,10 @@
+$u-display-types: (
+  block,
+  flex,
+  inline,
+  inline-block,
+  inline-flex,
+  none,
+) !default;
+
+@include generate-utils(display, $u-display-types);

@@ -1,0 +1,17 @@
+@mixin browser-iphone-ipad-landscape($additionalSelector: "") {
+  #{unquote($additionalSelector)}.browser-iphone & {
+    @content;
+  }
+
+  #{unquote($additionalSelector)}.browser-ipad & {
+    @media (orientation: landscape) {
+      @content;
+    }
+  }
+}
+
+@mixin browser-supports-touch {
+  .browser-supports-touch:not(.browser-windows) & {
+    @content;
+  }
+}

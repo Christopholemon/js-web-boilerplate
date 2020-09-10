@@ -1,0 +1,199 @@
+$ladder-fixed-column-width-position: 58;
+$ladder-fixed-column-width-logo: 52;
+$ladder-table-head-height: rem(36);
+
+.ladder-page__ladder-wrapper {
+  position: relative;
+}
+
+.ladder-page__ladder-inner {
+  overflow-x: auto;
+}
+
+.ladder {
+  border-collapse: collapse;
+  font-size: fs(14);
+  line-height: 1;
+  width: 100%;
+}
+
+.ladder__body {
+  &::before {
+    bottom: 0;
+    box-shadow: 0 rem(2) rem(8) rem(2) rgba(c(black), 0.04);
+    content: "";
+    height: calc(100% - #{$ladder-table-head-height});
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;  // havent use z-map as it just needs to be below itself
+  }
+}
+
+.ladder__row {
+  background-color: c(white);
+  color: c(gray 444444);
+  height: rem(57);
+
+  &:hover {
+    background: (c(gray eaeaea));
+  }
+}
+
+.ladder__row--header {
+  background: c(gray f6f6f6);
+  height: $ladder-table-head-height;
+  pointer-events: none;
+}
+
+.ladder__row--qualifier {
+  border-bottom: rem(2) solid;
+}
+
+.ladder__item {
+  min-width: rem(60);
+  text-align: center;
+}
+
+.ladder__item--header {
+  color: c(gray 666666);
+  font-weight: fw(400);
+  height: $ladder-table-head-height;
+  letter-spacing: rem(1);
+  line-height: (18 / 14);
+  padding-bottom: rem(6);
+  text-transform: capitalize;
+  vertical-align: bottom;
+}
+
+.ladder__item--fixed-header {
+  align-items: flex-end if($important, !important, null);
+  height: $ladder-table-head-height if($important, !important, null);
+}
+
+.ladder__item--club-header {
+  position: relative;
+  width: rem(110);
+
+  .ladder--with-fixed-columns & {
+    padding-left: rem($ladder-fixed-column-width-position + $ladder-fixed-column-width-logo) + s(medium);
+  }
+
+  &:not(.ladder__item--header)::after {
+    border-right: rem(1) solid c(gray e8e8e8);
+    bottom: rem(8);
+    content: "";
+    position: absolute;
+    right: 0;
+    top: rem(8);
+  }
+}
+
+.ladder__item--position {
+  width: rem(40);
+}
+
+.ladder__item--fixed {
+  align-items: center;
+  background: inherit;
+  display: flex;
+  height: rem(56);
+  justify-content: center;
+  position: absolute;
+
+  .ladder__row--qualifier & {
+    height: rem(55); // for the border divider
+  }
+}
+
+.ladder__item--fixed-position {
+  width: rem($ladder-fixed-column-width-position);
+  z-index: z(primary ladder__item--fixed);
+}
+
+.ladder__item--fixed-club-logo {
+  left: rem($ladder-fixed-column-width-position);
+  width: rem($ladder-fixed-column-width-logo);
+  z-index: z(primary ladder__item--fixed);
+}
+
+.ladder__item--sportsbet-cell {
+  border-bottom: rem(1) solid rgba(c(white), 0.3);
+  font-weight: fw(700);
+  letter-spacing: rem(1);
+  min-width: rem(70);
+}
+
+.ladder-position {
+  color: c(gray 222222);
+  font-size: fs(14);
+  font-weight: fw(500);
+}
+
+.ladder-position-change {
+  display: flex;
+  height: rem(8);
+  width: rem(8);
+
+  .ladder--with-fixed-columns & {
+    display: flex;
+    margin-left: rem(6);
+    margin-top: rem(2); // alignment fix - happy to explore better solution
+  }
+}
+
+.ladder-position-change--down {
+  fill: c(red d22630);
+}
+
+.ladder-position-change--up {
+  fill: c(green 009639);
+}
+
+.ladder-position-change__svg {
+  height: inherit;
+  width: inherit;
+}
+
+.ladder__sportsbet-logo {
+  height: rem(30);
+  width: rem(60);
+}
+
+.ladder-club {
+  color: inherit;
+  display: block;
+  font-size: fs(13);
+  font-weight: fw(500);
+  letter-spacing: rem(0.5);
+  line-height: (52 / 13);
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ladder-club--logo-only {
+  padding-left: rem(32);
+}
+
+.ladder-club__svg {
+  height: rem(52);
+  width: rem(52);
+
+  .ladder--mini & {
+    height: rem(40);
+    width: rem(40);
+  }
+}
+
+.ladder-club__vertical-line {
+  background: c(gray e8e8e8);
+  height: rem(40);
+  margin-left: s(x-small);
+  width: rem(1);
+}
+
+.ladder-club__svg--next {
+  height: rem(32);
+  width: rem(32);
+}

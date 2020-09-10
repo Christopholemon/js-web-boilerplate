@@ -1,0 +1,7 @@
+@function spacing($keys, $function-name: "spacing") {
+  @return get($spacings, $keys, $function-name);
+}
+
+@function s($keys) {
+  @return spacing($keys, "s");
+}

@@ -1,0 +1,45 @@
+.stats-bar-chart {
+  margin: 0 auto;
+  max-width: rem(640);
+}
+
+.stats-bar-chart__title {
+  @include responsive-tween(fs(14), (960px: fs(16)));
+  @include responsive-tween(rem(4), (960px: rem(2)), margin-bottom);
+
+  font-weight: fw(400);
+  letter-spacing: rem(1);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stats-bar-chart__label {
+  @include responsive-tween(fs(20), (960px: fs(26)));
+
+  font-weight: fw(300);
+  min-width: rem(72);
+  padding-left: s(x-small);
+}
+
+.stats-bar-chart__label--home {
+  padding-left: 0;
+  padding-right: s(x-small);
+  text-align: right;
+}
+
+.stats-bar-chart-bar {
+  align-items: center;
+  display: flex;
+  padding: 0 rem(3);
+  transform: skewX(-30deg);
+  transition: flex-basis 0.25s ease-in-out;
+
+  @include mq(375px) {
+    padding: 0 rem(6);
+  }
+}
+
+.stats-bar-chart-bar__fill {
+  height: rem(16);
+  width: 100%;
+}

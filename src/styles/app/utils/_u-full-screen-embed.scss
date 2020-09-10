@@ -1,0 +1,14 @@
+.u-full-screen-embed {
+  border: none;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+
+  img {
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    width: 100vw;
+  }
+}

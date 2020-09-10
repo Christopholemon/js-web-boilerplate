@@ -1,0 +1,22 @@
+.o-hero-gradient {
+  position: relative;
+  z-index: z(primary o-hero-gradient);
+
+  &::before {
+    @include theme(background, "linear-gradient(to bottom, rgba(${tint-rm}, 0) 0%, rgba(${tint-rm}, 0.25) 25%, rgba(${tint-rm}, 0.75) 60%, rgba(${tint-rm}, 1) 100%)", (t, t-local));
+    @include responsive-tween(rem(128), rem(200), height);
+
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: z(primary o-hero-gradient);
+  }
+}
+
+.o-hero-gradient--black {
+  &::before {
+    background: linear-gradient(to bottom, rgba(c(black), 0) 0%, rgba(c(black), 0.25) 25%, rgba(c(black), 0.75) 60%, rgba(c(black), 1) 100%) if($important, !important, null);
+  }
+}

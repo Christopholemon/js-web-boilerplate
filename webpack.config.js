@@ -29,14 +29,14 @@ module.exports = {
   },
   module: {
     rules: [
-      { 
+      {
         test: /\.js$/,
         // type: 'javascript/esm',
-        exclude: /node_modules/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/i,
+        test: /\.(css|scss)$/,
         use: [
           // TODO: Want CSS output to a dedicated ./static folder
           // {
@@ -56,6 +56,19 @@ module.exports = {
             }
           },
           'sass-loader',
+          // {
+          //   loader: 'sass-loader',
+          //   options: {
+          //     data: (loaderContext) => {
+          //       const searchParams = new URLSearchParams(loaderContext.resourceQuery);
+
+          //       if (searchParams.has('key')) {
+          //         return `$key: '${searchParams.get('key')}';`;
+          //       }
+          //     },
+          //     // outputStyle: 'expanded',
+          //   },
+          // },
         ],
       }
     ]

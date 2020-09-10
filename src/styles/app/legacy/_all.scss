@@ -1,0 +1,10 @@
+// sass-lint:disable class-name-format
+.cmsDrawWidgetBorder,
+.eVideo,
+.fantasyWYSWIGContainer,
+.playerComparisonWYSWIGContainer,
+.playerStatsWYSWIGContainer,
+.relatedNewsWYSWIGContainer,
+.videoWYSWIGContainer {
+  display: none if($important, !important, null); // migrated content hide
+}

@@ -1,0 +1,26 @@
+@mixin generate-utils($name, $list, $print: false) {
+  @if (type-of($name) == "string" or type-of($list == "list") and (type-of($list) == "list" or type-of($list == "map"))) {
+    @each $item in $list {
+      $class-name: if(type-of($name) == "list", nth($name, 1), $name);
+      $property-name: if(type-of($name) == "list", nth($name, 2), $name);
+
+      $class-value: if(type-of($list) == "map", nth($item, 1), $item);
+      $property-value: if(type-of($list) == "map", nth($item, 2), $item);
+
+      @if ($print) {
+        @media print {
+          %u-print-#{$class-name}-#{$class-value},
+          .u-print-#{$class-name}-#{$class-value} {
+            #{$property-name}: $property-value if($important, if($important, !important, null), null); 
+          }
+        }
+      }
+      @else {
+        %u-#{$class-name}-#{$class-value},
+        .u-#{$class-name}-#{$class-value} {
+          #{$property-name}: $property-value if($important, if($important, !important, null), null);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@function log-error($message) {
+  $message: "***** " + $message + " *****";
+
+  @warn $message;
+  @error $message;
+
+  @return null;
+}

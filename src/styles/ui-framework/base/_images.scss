@@ -1,0 +1,19 @@
+$b-img-vertical-align: bottom !default;
+$b-img-globally-responsive: true !default;
+
+img {
+  vertical-align: $b-img-vertical-align;
+}
+
+@if ($b-img-globally-responsive) {
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+@else {
+  .responsive-image {
+    height: auto;
+    max-width: 100%;
+  }
+}

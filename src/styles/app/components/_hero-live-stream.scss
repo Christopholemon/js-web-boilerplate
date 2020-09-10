@@ -1,0 +1,56 @@
+.hero-live-stream {
+  font-family: ff(rl2);
+  padding-bottom: (9 / 16) * 100%;
+  position: relative;
+
+  &::after {
+    background-color: rgba(c(black), 0.75);
+    content: "";
+  }
+}
+
+.hero-live-stream__image {
+  transform: translateX(0);
+}
+
+.hero-live-stream__image,
+.hero-live-stream__container,
+.hero-live-stream::after {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.hero-live-stream__container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: s(small);
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.hero-live-stream__heading {
+  @include responsive-tween(fs(18), fs(26));
+
+  letter-spacing: rem(2);
+  line-height: (26 / 24);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero-live-stream__heading-countdown {
+  font-weight: fw(700);
+}
+
+.hero-live-stream--pre-countdown {
+  .hero-live-stream__heading-countdown {
+    @include responsive-tween(fs(26), fs(36));
+
+    display: block;
+    text-transform: none;
+  }
+}
+
+

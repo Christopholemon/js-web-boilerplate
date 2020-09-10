@@ -1,0 +1,38 @@
+@mixin generate-u-theme-rules($prefix, $suffix: "") {
+  #{$u-theme-selector} .u-t-#{$prefix}-#{$u-theme-variant}#{$suffix},
+  #{$u-theme-selector} .u-t-#{$prefix}-#{$u-theme-variant}-on-hover#{$suffix}:hover,
+  .keyboard-focus #{$u-theme-selector} .u-t-#{$prefix}-#{$u-theme-variant}-on-hover#{$suffix}:focus,
+  #{$u-theme-selector} .u-t-#{$prefix}-#{$u-theme-variant}-when-active#{$suffix}.is-active {
+    @content;
+  }
+}
+
+@mixin generate-u-themes($selector-prefix) {
+  @each $theme, $properties in c(themes) {
+    @each $property, $value in $properties {
+      $u-theme-selector: unquote(".#{$selector-prefix}-#{$theme}") !global;
+      $u-theme-variant: $property !global;
+
+      @include generate-u-theme-rules(color) {
+        @include u-color-properties($value, false);
+      }
+
+      @include generate-u-theme-rules(bg-color) {
+        background-color: $value;
+      }
+
+      @if ($property == highlight) {
+        @include generate-u-theme-rules(bg-color, --legible-color) {
+          @include u-color-properties(get-legible-color($value), false);
+        }
+      }
+
+      @include generate-u-theme-rules(border-color) {
+        border-color: $value;
+      }
+    }
+  }
+}
+
+@include generate-u-themes(t);
+@include generate-u-themes(t-local);

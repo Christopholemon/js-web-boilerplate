@@ -1,0 +1,73 @@
+$avatar-flipper-size: rem(36);
+$avatar-flipper-size--large: rem(108);
+$avatar-flipper-img-size: rem(36);
+$avatar-flipper-img-size--large: rem(108);
+
+.avatar-flipper {
+  perspective: 1000;
+  transform-style: preserve-3d;
+}
+
+.avatar-flipper--top-overlap {
+  filter: drop-shadow(rem(5) rem(5) rem(7) rgba(c(gray 222222), 0.15));
+  // TODO: default variant when necessary and remove magic numbers
+  margin-top: rem(-80);
+}
+
+.avatar-flipper__inner {
+  height: $avatar-flipper-size;
+  position: relative;
+  transition: ease 0.6s;
+  width: $avatar-flipper-size;
+
+  .avatar-flipper--large & {
+    height: $avatar-flipper-size--large;
+    width: $avatar-flipper-size--large;
+  }
+}
+
+.avatar-flipper-item {
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: ease 0.6s;
+}
+
+.avatar-flipper-item--front {
+  transform: rotateY(0deg);
+
+  .avatar-flipper:hover & {
+    transform: rotateY(180deg);
+  }
+}
+
+.avatar-flipper-item--back {
+  transform: rotateY(180deg);
+
+  .avatar-flipper:hover & {
+    transform: rotateY(0deg);
+  }
+}
+
+.avatar-flipper-item__object {
+  align-items: center;
+  border-radius: 50%;
+  color: c(white);
+  display: flex;
+  font-size: fs(13);
+  font-weight: fw(400);
+  height: $avatar-flipper-img-size;
+  justify-content: center;
+  line-height: (36 / 13);
+  max-width: none;
+  width: $avatar-flipper-img-size;
+
+  .avatar-flipper--large & {
+    border: rem(3) solid c(gray f6f6f6);
+    font-size: fs(36);
+    height: $avatar-flipper-img-size--large;
+    line-height: (108 / 36);
+    width: $avatar-flipper-img-size--large;
+  }
+}

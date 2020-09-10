@@ -1,0 +1,16 @@
+.navigation-hamburger {
+  appearance: none;
+  background: none;
+  border: none;
+  height: rem(22);
+  padding: 0;
+
+  @include mq(960px) {
+    display: none;
+  }
+}
+
+.navigation-hamburger__svg {
+  height: rem(22);
+  width: rem(22);
+}

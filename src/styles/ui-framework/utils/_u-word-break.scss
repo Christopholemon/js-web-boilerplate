@@ -1,0 +1,9 @@
+$u-word-break: true !default;
+
+@if ($u-word-break) {
+  %u-word-break,
+  .u-word-break {
+    word-break: break-word if($important, !important, null);
+    word-wrap: break-word if($important, !important, null);
+  }
+}

@@ -1,0 +1,39 @@
+.add-to-calendar__button {
+  align-items: center;
+  border-width: rem(1);
+  color: inherit;
+  display: flex;
+  font-size: fs(14);
+  height: rem(42);
+  padding: 0;
+  width: rem(42);
+
+  @include mq(768px) {
+    padding: rem(8) s(x-small) rem(6) s(small);
+    width: auto;
+  }
+}
+
+.add-to-calendar-button__text {
+  letter-spacing: rem(4);
+  position: relative;
+  top: rem(-2);
+
+  @include mq(767px, max-width) {
+    display: none;
+  }
+}
+
+.add-to-calendar-button__svg {
+  height: rem(36);
+  left: rem(2.25);
+  position: relative;
+  top: rem(1);
+  width: rem(36);
+
+  @include mq(768px) {
+    left: rem(-4);
+    margin-left: s(x-small);
+    top: 0;
+  }
+}

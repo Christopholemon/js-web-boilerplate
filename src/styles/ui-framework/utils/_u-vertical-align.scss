@@ -1,0 +1,10 @@
+$u-vertical-align-types: (
+  baseline,
+  bottom,
+  middle,
+  text-bottom,
+  text-top,
+  top,
+) !default;
+
+@include generate-utils(vertical-align, $u-vertical-align-types);

@@ -1,0 +1,45 @@
+.author {
+  align-items: flex-end;
+  display: flex;
+}
+
+.author--has-image {
+  margin-bottom: rem(-32);
+
+  @include mq(960px) {
+    margin-bottom: rem(-40);
+  }
+}
+
+.author__name {
+  @include author-name-fs;
+
+  color: c(gray 222222);
+
+  .author--multiple & {
+    @include author-name-fs--multiple;
+  }
+
+  .author--single-no-role & {
+    @include author-secondary;
+  }
+}
+
+.author__role {
+  @include author-secondary;
+}
+
+.author__timestamp {
+  @include author-timestamp-mt;
+
+  font-size: fs(12);
+
+  .author--has-image & {
+    @include author-timestamp-with-image-mb;
+  }
+}
+
+.author__image {
+  @include author-image-ml;
+  @include author-image-max-height;
+}

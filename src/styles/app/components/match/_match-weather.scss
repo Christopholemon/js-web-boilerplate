@@ -1,0 +1,17 @@
+.match-weather {
+  color: c(gray 444444);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: fs(11);
+  justify-content: center;
+  line-height: (20 / 14);
+
+  .match-eqio-\>628 & {
+    font-size: fs(14);
+  }
+}
+
+.match-weather__text {
+  padding: 0 s(x-small) s(small);
+  text-align: center;
+}

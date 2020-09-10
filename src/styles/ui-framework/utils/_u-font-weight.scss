@@ -1,0 +1,6 @@
+$u-font-weight-types: (
+  400,
+  700,
+) !default;
+
+@include generate-utils(font-weight, $u-font-weight-types);

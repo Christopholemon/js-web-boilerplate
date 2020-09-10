@@ -1,0 +1,41 @@
+.navigation-logo {
+  text-align: center;
+  width: 100%;
+
+  @include mq(960px) {
+    padding: rem(26) 0;
+  }
+
+  @media (min-width: em(960px)) and (max-height: em(780px)) {
+    padding: s(small) 0;
+  }
+}
+
+.navigation-logo__link {
+  display: block;
+  margin: 0 spacing(medium);
+
+  @include mq(960px) {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.navigation-logo__badge {
+  display: none;
+  height: rem(90);
+  width: rem(133);
+
+  @include mq(960px) {
+    display: block;
+  }
+}
+
+.navigation-logo__text {
+  height: rem(32);
+  width: 100%;
+
+  @include mq(960px) {
+    display: none;
+  }
+}

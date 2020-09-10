@@ -1,3 +1,3 @@
 // main webpack entry point
-require("./index.scss");
-require("./index.js");
+require("./styles/main.scss");
+require("./scripts/main.js");

@@ -1,0 +1,15 @@
+.keyboard-navigation {
+  background-color: c(grey 222222);
+  color: c(white);
+  left: rem(-1000);
+  padding: s(small);
+  position: absolute;
+  z-index: z(primary keyboard-navigation);
+
+  &:focus {
+    left: rem(5);
+    position: absolute;
+    top: rem(5);
+  }
+}
+

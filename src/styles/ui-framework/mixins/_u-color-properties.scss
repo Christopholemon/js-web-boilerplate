@@ -1,0 +1,6 @@
+$u-color-properties-use-fill: true !default;
+
+@mixin u-color-properties($value, $important: true) {
+  color: $value if($important, if($important, !important, null), null);
+  fill: if($u-color-properties-use-fill, $value if($important, if($important, !important, null), null), null);
+}

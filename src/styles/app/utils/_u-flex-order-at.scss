@@ -1,0 +1,14 @@
+$u-flex-order-at-breakpoint-types: (
+  600px,
+  768px,
+);
+
+@each $type in $u-flex-order-types {
+  @each $breakpoint in $u-flex-order-at-breakpoint-types {
+    .u-flex-order-#{$type}-at-#{strip-unit($breakpoint)} {
+      @include mq($breakpoint) {
+        order: $type if($important, !important, null);
+      }
+    }
+  }
+}

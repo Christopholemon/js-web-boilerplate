@@ -1,0 +1,102 @@
+$float-label-input-group-input-height: $combox__input-min-height;
+$float-label-input-group-max-width: rem(409);
+
+.float-label-input-group,
+.float-label-input-group__input-slash {
+  display: flex;
+  flex-direction: column;
+  max-width: $float-label-input-group-max-width;
+  position: relative;
+
+  ::placeholder {
+    color: transparent;
+  }
+}
+
+.float-label-input-group--date {
+  width: rem(30);
+}
+
+.float-label-input-group--year {
+  width: rem(40);
+}
+
+.float-label-input-group__input {
+  line-height: $float-label-input-group-input-height;
+  min-height: $float-label-input-group-input-height;
+  order: 1;
+  width: 100%;
+
+  .float-label-input-group--fake & {
+    color: c(gray 666666);
+  }
+}
+
+.float-label-input-group__input-slash {
+  align-items: center;
+  color: c(gray dcdcdc);
+  display: flex;
+  font-size: fs(24);
+  justify-content: center;
+
+  &::after {
+    color: c(gray dcdcdc);
+    content: "/";
+    margin-left: s(x-small) * -1;
+    transform: rotate(15deg);
+  }
+
+}
+
+.float-label-input-group__label {
+  color: c(gray 666666);
+  line-height: 1.3;
+  order: 0;
+  padding-right: s(small);
+  position: relative;
+  transform: translateY(0) scale(0.875);
+  transform-origin: left;
+  transition: transform ease 0.15s;
+
+  // hack to get the floating label to transform on browser autofill.
+  :-webkit-autofill + & {
+    outline: 1px solid transparent;
+  }
+
+  :placeholder-shown + & {
+    color: c(gray 767676);
+    cursor: text;
+    pointer-events: none;
+    transform: translateY(rem(20));
+  }
+
+  .float-label-input-group--fake &::before {
+    content: "\A0";
+  }
+}
+
+.float-label-input-group__show-password-button {
+  background: c(white);
+  border: none;
+  color: c(gray 767676);
+  font-size: fs(12);
+  min-height: $float-label-input-group-input-height;
+  padding: s(x-small);
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: ($float-label-input-group-input-height / 2) - rem(1); // rounding: otherwise this overlap the border of the input.
+
+  &:focus {
+    color: c(core text);
+  }
+}
+
+.float-label-input-group__validation-message {
+  order: 2;
+}
+
+.float-label-input-group__instruction {
+  @extend %o-validation-message;
+  order: 2;
+}

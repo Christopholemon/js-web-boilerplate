@@ -1,0 +1,26 @@
+.btyb {
+  align-items: center;
+  display: flex;
+}
+
+.btyb__text {
+  color: c(gray 595959);
+  flex-shrink: 0;
+  font-size: fs(10);
+  letter-spacing: rem(1);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.btyb__image {
+  @include responsive-tween(rem(40), (960px: rem(46)), height);
+  @include responsive-tween(rem(5), (960px: rem(10)), margin-left);
+
+  .card--branded & {
+    height: rem(15);
+  }
+
+  .top-banner & {
+    @include responsive-tween(rem(15), (960px: rem(20)), height);
+  }
+}

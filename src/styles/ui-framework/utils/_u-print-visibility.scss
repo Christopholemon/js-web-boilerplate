@@ -1,0 +1,5 @@
+$u-print-visibility-types: (
+  visible,
+) !default;
+
+@include generate-utils(visibility, $u-print-visibility-types, true);

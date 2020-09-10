@@ -1,0 +1,52 @@
+$audio-stream-player__svg-size: 18;
+
+.audio-stream-player {
+  padding: s(x-small);
+}
+
+.audio-stream-player__loading-indicator {
+  height: rem(26) if($important, !important, null);
+  width: rem(26) if($important, !important, null);
+}
+
+.audio-stream-player__button {
+  font-family: ff(videoplayer);
+  font-size: fs(24);
+  padding: rem(1); // for ios - otherwise the icon garbles
+}
+
+.audio-stream-player__headphones {
+  height: rem($audio-stream-player__svg-size);
+  width: rem($audio-stream-player__svg-size);
+}
+
+.audio-stream-player__volume-slider {
+  @include browser-supports-touch {
+    display: none if($important, !important, null);
+  }
+
+  margin-left: rem(14);
+  min-width: rem(88);
+}
+
+.audio-stream-player__error {
+  .is-stickio & {
+    bottom: s(x-small);
+    font-size: fs(12);
+    left: 50%;
+    margin: 0 if($important, !important, null);
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}
+
+// todo: Won't handle differing lengths of text
+.audio-stream-player-filter-dropdown {
+  & .filter-dropdown__wrapper {
+    @include mq(768px) {
+      left: -100% if($important, !important, null);
+      min-width: rem(230) if($important, !important, null);
+    }
+  }
+}

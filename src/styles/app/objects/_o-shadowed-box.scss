@@ -1,0 +1,12 @@
+$o-shadowed-box: 0 rem(2) rem(8) rem(2) rgba(c(black), 0.04);
+
+.o-shadowed-box {
+  background: c(white);
+  box-shadow: $o-shadowed-box;
+}
+
+// sass-lint:disable no-qualifying-elements
+a.o-shadowed-box:focus,
+a.o-shadowed-box:hover {
+  box-shadow: 0 rem(2) rem(8) rem(2) rgba(c(black), 0.14);
+}

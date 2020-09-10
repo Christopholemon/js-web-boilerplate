@@ -1,0 +1,146 @@
+.match-centre-event {
+  color: c(gray 222222);
+  overflow: hidden;
+  position: relative;
+}
+
+.match-centre-event--feature {
+  color: c(white);
+}
+
+.match-centre-event__hero {
+  position: relative;
+  // z-index is needed for the adBlocker (videoPlayer) to appear above __angle
+  z-index: z(primary match-centre-event__hero);
+}
+
+.match-centre-event__angle {
+  left: 100%;
+  margin-left: rem(-110);
+  transform-origin: 0 100%;
+}
+
+.match-centre-event__content {
+  display: flex;
+  padding: s(small) 0;
+  position: relative;
+
+  .match-centre-event--feature & {
+    min-height: rem(120);
+  }
+}
+
+.match-centre-event__icon {
+  display: block;
+  fill: currentColor;
+  height: rem(36);
+  margin: 0 auto s(x-small);
+  width: rem(36);
+}
+
+.match-centre-event__timestamp {
+  font-size: fs(12);
+  font-weight: fw(400);
+  letter-spacing: rem(1);
+
+  @include mq(768px) {
+    font-size: fs(14);
+    letter-spacing: rem(1.17);
+  }
+}
+
+.match-centre-event__summary {
+  flex-grow: 1;
+  font-size: fs(14);
+
+  .match-centre-event--feature & {
+    border-left-color: rgba(c(white), 0.25);
+  }
+}
+
+.match-centre-event__title {
+  font-size: fs(12);
+  letter-spacing: rem(1);
+  line-height: (18 / 14);
+  padding-bottom: rem(4);
+  text-transform: uppercase;
+
+  .match-centre-event--feature & {
+    color: inherit;
+  }
+
+  @include mq(768px) {
+    font-size: fs(14);
+    padding-bottom: rem(9);
+  }
+}
+
+.match-centre-event__interchange-player {
+  display: inline-block;
+  font-size: fs(12);
+  font-weight: fw(700);
+  min-width: rem(28);
+  text-transform: uppercase;
+}
+
+.match-centre-event__interchange-player--on {
+  color: c(green 00874f);
+}
+
+.match-centre-event__interchange-player--off {
+  color: c(red d0011b);
+}
+
+.match-centre-event__team-name {
+  line-height: (24 / 14);
+}
+
+.match-centre-event__score {
+  font-size: fs(24);
+  font-weight: fw(300);
+  line-height: 1;
+  padding-bottom: s(x-small);
+  padding-top: s(x-small);
+
+  @include mq(768px) {
+    font-size: fs(36);
+  }
+}
+
+.match-centre-event-player {
+  align-items: flex-end;
+  bottom: rem(-16);
+  display: none;
+  height: 100%;
+  position: absolute;
+  right: rem(-30);
+
+  @include mq(360px) {
+    display: flex;
+  }
+
+  @include mq(768px) {
+    bottom: rem(-24);
+  }
+}
+
+.match-centre-event-player__image {
+  max-height: rem(150);
+
+  @include mq(768px) {
+    max-height: rem(175);
+  }
+}
+
+.match-centre-event__logo {
+  height: rem(65);
+  position: absolute;
+  right: rem(20);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.match-centre-event__bunker-logo {
+  height: rem(24);
+  width: rem(90);
+}

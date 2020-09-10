@@ -1,0 +1,146 @@
+.my-account {
+  margin: s(small) auto s(medium);
+  max-width: 95%;
+  width: 100%;
+
+  @include mq(768px) {
+    margin-top: s(medium);
+    max-width: 80%;
+  }
+
+  @include mq(960px) {
+    max-width: 85%;
+  }
+
+  @include mq(1200px) {
+    margin-bottom: s(large);
+    max-width: 75%;
+  }
+}
+
+.my-account__alert-ribbon {
+  font-size: fs(14);
+  margin-bottom: rem(20);
+  min-height: rem(38);
+}
+
+.my-account__cancel {
+  font-size: fs(14);
+}
+
+.my-account__form-width {
+  margin: auto;
+  max-width: rem(600);
+}
+
+.my-account__form-width--favourites {
+  max-width: rem(400);
+}
+
+.my-account__form-width--inner {
+  max-width: $float-label-input-group-max-width;
+  width: 100%;
+}
+
+.my-account__form-width--actions {
+  max-width: rem(300);
+}
+
+.my-account__form-width--explanation {
+  max-width: rem(460);
+}
+
+.my-account__explanation-text {
+  color: c(core text-light);
+
+  .collapsible-target & {
+    margin-top: rem(10);
+  }
+}
+
+.my-account__explanation-text--small {
+  font-size: fs(12);
+  line-height: (16 / 12);
+}
+
+.my-account__explanation-text--medium {
+  font-size: fs(14);
+  line-height: (18 / 14);
+}
+
+.my-account__explanation-text--large {
+  font-size: fs(16);
+  line-height: (20 / 16);
+}
+
+.my-account__edit {
+  padding: s(medium) s(small);
+
+  @include mq(768px) {
+    padding: s(large) s(medium);
+  }
+}
+
+.my-account__edit--favourites {
+  margin-bottom: rem(130);
+}
+
+.my-account__email {
+  color: c(gray 222222);
+  font-size: fs(16);
+  margin-bottom: s(small);
+  margin-top: rem(5);
+
+  @include mq(768px) {
+    font-size: fs(18);
+    margin-bottom: s(medium);
+    margin-top: rem(6);
+  }
+}
+
+.my-account__name {
+  font-size: fs(24);
+
+  @include mq(768px) {
+    font-size: fs(36);
+    margin-top: rem(10);
+  }
+}
+
+.my-account__settings {
+  padding: s(small);
+
+  @include mq(768px) {
+    padding: rem(32) s(medium);
+  }
+}
+
+.my-account-form-group-trigger {
+  background-color: c(gray f6f6f6);
+  color: inherit;
+  display: flex;
+  overflow: hidden;
+  padding: s(x-small) s(small) s(x-small) 0;
+}
+
+.my-account-title {
+  font-size: fs(14);
+  font-weight: fw(500);
+  letter-spacing: rem(3.5);
+  line-height: (24 / 16);
+  text-transform: uppercase;
+}
+
+.my-account-form-group-trigger__label {
+  flex-grow: 1;
+
+  @include mq(768px) {
+    letter-spacing: rem(2);
+  }
+}
+
+.my-account-form-group__content {
+  border: rem(2) solid c(gray f6f6f6);
+  border-top: none;
+  padding: s(small);
+}

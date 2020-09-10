@@ -1,0 +1,36 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+.inline-audio {
+  font-family: ff(rl2); // .s-cms-content requirement
+  margin: 0 auto;
+  max-width: rem(620);
+}
+
+.inline-audio__audio {
+  display: inline;
+  width: 100%;
+}
+
+.inline-audio-meta {
+  color: c(gray 666666);
+  display: flex;
+  flex-direction: column;
+  margin-top: s(x-small);
+
+  @include mq(768px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: rem(20);
+  }
+}
+
+.inline-audio-title {
+  @include responsive-tween(fs(14), (1200px: fs(16)));
+  line-height: (20 / 14);
+  padding-right: rem(12);
+
+  @include mq(768px) {
+    line-height: (20 / 16);
+  }
+}

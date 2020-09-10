@@ -1,0 +1,248 @@
+$team-list-height-small: rem(75);
+$team-list-image-height-small: $team-list-height-small + rem(5);
+$team-list-height-large: rem(85);
+$team-list-image-height-large: $team-list-height-large + rem(10);
+
+.team-list__container {
+  margin-bottom: rem(31);
+
+  @include mq(768px) {
+    margin-bottom: rem(62);
+  }
+}
+
+.team-list {
+  align-items: center;
+  display: flex;
+
+  .teamsheet & {
+    @include mq(600px, max-width) {
+      min-height: rem(40);
+    }
+  }
+}
+
+.team-list--ins-and-outs {
+  .teamsheet & {
+    padding: 0;
+  }
+}
+
+.team-list--ins {
+  margin-bottom: rem(1);
+
+  .teamsheet & {
+    margin-bottom: s(small);
+  }
+}
+
+.team-list--match-centre {
+  margin-bottom: rem(12);
+  min-height: $team-list-height-small;
+
+  @include mq(768px) {
+    margin-bottom: rem(30);
+    min-height: $team-list-height-large;
+  }
+}
+
+.team-list-profile {
+  align-items: center;
+  display: flex;
+  flex-basis: 35%;
+  flex-grow: 2;
+  position: relative;
+
+  .team-list--match-centre & {
+    min-height: $team-list-height-small;
+
+    @include mq(768px) {
+      min-height: $team-list-height-large;
+    }
+  }
+}
+
+.team-list-profile--home {
+  justify-content: flex-end;
+}
+
+.team-list-profile-img {
+  bottom: 0;
+  height: $team-list-image-height-small;
+  left: 0;
+  overflow-x: hidden;
+  position: absolute;
+  width: rem(140);
+
+  @include mq(768px) {
+    height: $team-list-image-height-large;
+  }
+
+  .team-list-profile--away & {
+    left: auto;
+    right: 0;
+  }
+}
+
+.team-list-profile__img {
+  @include responsive-tween(rem(-40), (500px: 0), left);
+  bottom: 0;
+  height: $team-list-image-height-small;
+  max-width: none;
+  position: absolute;
+
+  @include mq(768px) {
+    height: $team-list-image-height-large;
+  }
+
+  .team-list-profile--away & {
+    @include responsive-tween(rem(-40), (500px: 0), right);
+    left: auto;
+  }
+}
+
+.team-list-profile-content {
+  display: flex;
+  flex-direction: column;
+
+  .team-list-profile--home & {
+    text-align: right;
+  }
+
+  .team-list--match-centre & {
+    min-height: rem(42);
+  }
+}
+
+.team-list-profile__name {
+  color: c(gray 222222);
+  font-size: fs(12);
+
+  @include mq(375px) {
+    font-size: fs(13);
+  }
+
+  @include mq(768px) {
+    font-size: fs(16);
+  }
+
+  .team-list--match-centre & {
+    min-height: rem(42);
+
+    @include mq(768px) {
+      font-size: fs(20);
+    }
+  }
+
+  .team-list--ins-and-outs & {
+    .teamsheet & {
+      margin: rem(4) 0;
+    }
+  }
+
+  .team-list-profile--home & {
+    text-align: right;
+  }
+
+  .team-list-profile--away & {
+    text-align: left;
+  }
+}
+
+
+.team-list-profile__captain,
+.team-list-profile__status {
+  font-size: fs(10);
+  letter-spacing: rem(0.63);
+  text-transform: uppercase;
+}
+
+.team-list-profile__captain {
+  margin-top: rem(2);
+}
+
+.team-list-profile__status {
+  color: c(red ba0000);
+  font-weight: fw(700);
+
+  @include mq(768px) {
+    font-size: fs(12);
+    letter-spacing: rem(0.75);
+    margin-top: rem(2);
+  }
+}
+
+.team-list-profile__status--on {
+  color: c(green 00874f);
+}
+
+.team-list-position {
+  @include responsive-tween(rem(0), rem(360), min-width);
+
+  align-items: center;
+  color: c(gray 222222);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 s(x-small);
+
+  .team-list--match-centre {
+    @include mq(1200px) {
+      min-width: rem(350);
+    }
+  }
+
+  .teamsheet & {
+    @include mq(1200px) {
+      min-width: rem(170);
+    }
+
+    @include mq(1400px) {
+      min-width: rem(280);
+    }
+  }
+
+}
+
+.team-list-position__number {
+  font-size: fs(14);
+  min-width: rem(16);
+  padding: 0 rem(4);
+
+  .team-list--match-centre & {
+    padding: 0 s(x-small);
+
+    @include mq(768px) {
+      font-size: fs(20);
+    }
+  }
+
+  &:nth-child(2) {
+    border-left: rem(1) solid c(gray dcdcdc);
+  }
+}
+
+.team-list-position__text {
+  font-size: fs(10);
+  letter-spacing: rem(0.5);
+  margin-top: rem(2);
+  text-transform: uppercase;
+
+  @include mq(375px) {
+    font-size: fs(12);
+  }
+
+  @include mq(768px) {
+    font-size: fs(14);
+    margin-top: rem(6);
+  }
+
+  .team-list--ins-and-outs & {
+    font-size: fs(18);
+    letter-spacing: rem(1);
+  }
+
+  .teamsheet & {
+    font-size: fs(14);
+  }
+}

@@ -1,0 +1,276 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+$table-border-width: rem(1);
+
+.table {
+  border-collapse: collapse;
+  font-size: fs(14);
+  min-width: rem(320) - (s(small) * 2);
+}
+
+.table--fixed {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: z(primary above-inherit);
+}
+
+.table__th {
+  background: c(gray f6f6f6);
+  color: c(gray 767676);
+  font-weight: fw(400);
+  line-height: (18 / 14);
+  padding: rem(2) rem(10) rem(6);
+  vertical-align: bottom;
+
+  &:first-child,
+  &:last-child {
+    padding-left: rem(22);
+    padding-right: rem(22);
+  }
+
+  .table--max-cell-width-100 & {
+    max-width: rem(100);
+  }
+
+  &.table__th--smaller-padding {
+    &:first-child,
+    &:last-child {
+      padding-left: rem(12);
+      padding-right: rem(12);
+    }
+  }
+}
+
+.table__th--title {
+  color: c(gray 222222);
+  letter-spacing: rem(2);
+  margin-bottom: rem(12);
+  text-transform: uppercase;
+}
+
+.table-tbody {
+  background: c(white);
+  border: $table-border-width solid c(gray e8e8e8);
+  box-shadow: 0 rem(2) rem(8) rem(2) rgba(c(black), 0.04);
+  color: c(gray 222222);
+  line-height: (24 / 16);
+
+  .table--fixed & {
+    border-right-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.table-tbody__td {
+  border-bottom: $table-border-width solid c(gray e8e8e8);
+  padding: rem(10);
+  position: relative;
+
+  &:first-child,
+  &:last-child {
+    padding-left: rem(22);
+    padding-right: rem(22);
+  }
+
+  &:first-child::before,
+  &:last-child::after {
+    background: c(white);
+    bottom: $table-border-width * -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: rem(12);
+
+    .table-tbody__tr:last-child & {
+      bottom: 0;
+    }
+
+    @include browser-ie11 {
+      top: $table-border-width;
+    }
+
+    @include browser-edge {
+      top: $table-border-width;
+    }
+  }
+
+  &:first-child::before {
+    left: 0;
+  }
+
+  &:last-child::after {
+    right: 0;
+  }
+
+  .table--max-cell-width-100 & {
+    max-width: rem(100);
+  }
+
+  .table--fixed & {
+    border-bottom-color: transparent;
+  }
+
+  &.table-tbody__td--player-name {
+    font-weight: fw(500);
+    line-height: (16 / 14);
+    max-width: none;
+    min-width: rem(130);
+    white-space: normal;
+  }
+
+  &.table-tbody__td--smaller-padding {
+    &:first-child,
+    &:last-child {
+      padding-left: rem(12);
+      padding-right: rem(12);
+    }
+  }
+}
+
+.table-tbody__td--divider {
+  height: 100%;
+
+  &::before {
+    background: c(white);
+    bottom: $table-border-width * -1;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: z(primary above-inherit);
+
+    .table-tbody__tr:last-child & {
+      bottom: 0;
+    }
+
+    @include browser-ie11 {
+      display: none;
+    }
+
+    @include browser-edge {
+      top: $table-border-width;
+    }
+  }
+
+  &::after {
+    background: c(gray f6f6f6);
+    bottom: $table-border-width * -1;
+    content: "";
+    left: 50%;
+    margin-left: rem(-4);
+    position: absolute;
+    top: 0;
+    width: rem(8);
+    z-index: z(primary above-inherit);
+
+    .table-tbody__tr:first-child & {
+      top: rem(4);
+    }
+
+    .table-tbody__tr:last-child & {
+      bottom: rem(4);
+    }
+
+    @include browser-ie11 {
+      height: rem(52); // The height of a 2 line table cell
+      top: 0 if($important, !important, null);
+    }
+  }
+}
+
+.table__cell--fixed {
+  &.table-tbody__td {
+    border-bottom-color: c(gray e8e8e8);
+  }
+
+  .table--base & {
+    opacity: 0; // Prevent seeing the original table cells when Safari bounces
+  }
+
+  .table--fixed & {
+    opacity: 1;
+  }
+}
+
+.table__cell:not(.table__cell--fixed) {
+  .table--fixed & {
+    visibility: hidden;
+  }
+}
+
+.table__cell--width-generic {
+  min-width: rem(70);
+}
+
+.table__cell--width-intrinsic {
+  width: rem(1);
+}
+
+.table__image {
+  display: block;
+  max-width: none;
+}
+
+.table__image--badge {
+  height: rem(31);
+  margin: rem(-5);
+  width: rem(31);
+}
+
+.table__image--badge--larger-at-375 {
+  @include mq(375px) {
+    height: rem(41);
+    width: rem(41);
+  }
+}
+
+.table__image--headshot {
+  margin: rem(-5) rem(-20) 0 rem(-10);
+  width: rem(60);
+}
+
+.table__image--headshot--larger {
+  width: rem(75);
+}
+
+.table__image--headshot-spacer {
+  margin-bottom: rem(-10);
+  visibility: hidden;
+}
+
+.table__image--headshot-visible {
+  bottom: 0;
+  position: absolute;
+}
+
+.table__content-link {
+  display: block;
+  margin: rem(-10);
+  padding: rem(10);
+}
+
+.table__multiple-cell-value {
+  margin: rem(-3) 0;
+}
+
+.table__text--condensed {
+  line-height: (19 / 14);
+}
+
+.table__text--emphasis {
+  color: c(gray 222222);
+  font-size: fs(14);
+  font-weight: 700;
+
+  @include mq(375px) {
+    font-size: fs(16);
+  }
+}
+
+.table__text--subdued {
+  color: c(gray 666666);
+  font-size: rem(12);
+}

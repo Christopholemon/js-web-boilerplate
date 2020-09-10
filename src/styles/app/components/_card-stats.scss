@@ -1,0 +1,51 @@
+.card-stats__comp-leader {
+  background: c(gray d8d8d8);
+  border-top: rem(2) solid c(gray e8e8e8);
+  font-size: fs(12);
+  font-weight: fw(700);
+  padding: rem(2) rem(20) rem(4);
+  text-transform: uppercase;
+}
+
+.card-stats-ladder {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.card-stats-ladder__row {
+  height: rem(40);
+  vertical-align: middle;
+}
+
+.card-stats-ladder__row--player-row {
+  height: rem(51);
+}
+
+.card-stats-ladder-name {
+  color: c(gray 222222);
+  font-size: fs(14);
+}
+
+.card-stats-ladder-name__player,
+.card-stats-ladder-name__team {
+  color: inherit;
+  display: block;
+  padding: rem(6) 0 rem(6) rem(20);
+}
+
+.card-stats-ladder-name__player {
+  line-height: (17 / 14);
+}
+
+.card-stats-ladder__total {
+  color: c(gray 222222);
+  font-size: fs(20);
+  font-weight: fw(700);
+  text-align: right;
+}
+
+.card-stats-ladder__total-value {
+  color: inherit;
+  display: block;
+  padding: rem(6) rem(20) rem(6) 0;
+}

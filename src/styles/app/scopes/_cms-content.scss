@@ -1,0 +1,147 @@
+// NB. The following components' styles are affected by .s-cms-content:
+// * .o-section
+// * .ad
+// * .blockquote
+// * .card-team-mate
+// * .card-title
+// * .inline-image
+// * .inline-audio
+// * .locked-content
+// * .table
+// * .video-player
+
+$s-cms-content-margin--small: rem(40);
+$s-cms-content-margin--large: rem(70);
+$s-cms-content-margin--x-large: rem(90);
+
+.s-cms-content {
+  @include responsive-tween(fs(18), fs(20));
+  @include responsive-tween($s-cms-content-margin--small, $s-cms-content-margin--large, margin-bottom);
+  @include responsive-tween($s-cms-content-margin--small / 2, $s-cms-content-margin--large / 2, margin-top);
+
+  color: c(gray 222222);
+  font-family: ff(noto);
+  line-height: (32 / 18);
+
+  .u-t-bg-color-tint-rm & {
+    color: c(gray d8d8d8);
+  }
+
+  > {
+    * {
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    div:not(.l-grid):not(.o-fading-gradient):not(.locked-content),
+    .blockquote,
+    .inline-image,
+    .inline-audio,
+    .o-section {
+      @include responsive-tween($s-cms-content-margin--small, $s-cms-content-margin--large, (margin-bottom, margin-top));
+    }
+
+    div:not(.l-grid):not(.o-fading-gradient):not(.locked-content).vue-video-player {
+      @include responsive-tween($s-cms-content-margin--x-large, (768px: $s-cms-content-margin--large), margin-bottom);
+    }
+
+    :first-child {
+      margin-top: 0 if($important, !important, null);
+    }
+
+    :last-child {
+      margin-bottom: 0 if($important, !important, null);
+    }
+
+    .o-ad.is-pristine {
+      margin: 0 if($important, !important, null);
+    }
+
+    h2,
+    h3 {
+      @include responsive-tween(rem(-5), rem(-2), margin-bottom);
+      @include responsive-tween($s-cms-content-margin--small, $s-cms-content-margin--large, margin-top);
+
+      font-family: ff(rl2);
+
+      b,
+      strong {
+        font-weight: inherit; // Thanks WYSIWYG
+      }
+    }
+
+    h2 {
+      @include responsive-tween(fs(24), fs(30));
+
+      line-height: (32 / 24);
+    }
+
+    h3 {
+      @include responsive-tween(fs(20), fs(24));
+
+      line-height: (26 / 24);
+    }
+
+    @at-root {
+      .s-cms-content > h2 + h3 {
+        @include responsive-tween(rem(16), rem(26), margin-top);
+      }
+    }
+  }
+
+  a {
+    @extend %anchor;
+  }
+
+  li {
+    padding-left: rem(5);
+  }
+
+  // I would like to scope these to immediate children, but the editors like to wrap all things in <p>s :(
+  ol,
+  ul {
+    list-style-type: decimal;
+    padding-left: rem(38);
+
+    ol,
+    ul {
+      padding-left: rem(24);
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  .table-wrapper__scroller {
+    @extend .o-table-scroller__scroller;
+  }
+
+  table {
+    @extend .table;
+
+    font-family: ff(rl2);
+  }
+
+  th {
+    @extend .table__th;
+
+    text-align: left;
+  }
+
+  tbody {
+    @extend .table-tbody;
+
+    td {
+      @extend .table-tbody__td;
+    }
+  }
+}
+
+.s-cms-content--article {
+  @include responsive-tween($s-cms-content-margin--small, $s-cms-content-margin--large, margin-top);
+
+  p:first-of-type {
+    @include responsive-tween(fs(22), fs(24));
+  }
+}

@@ -1,0 +1,66 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+.inline-image {
+  display: table;
+  font-family: ff(rl2); // .s-cms-content requirement
+  margin: 0 auto;
+}
+
+.inline-image__image {
+  display: block;
+  max-height: rem(600);
+
+  &.inline-image__image--max-height-large {
+    max-height: rem(840);
+  }
+
+  .s-cms-content--historical-page & {
+    max-height: none;
+    width: 100%;
+  }
+}
+
+.inline-image-meta {
+  color: c(gray 666666);
+  display: flex;
+  flex-direction: column;
+  margin-top: s(x-small);
+
+  .inline-image--dark & {
+    color: c(white);
+  }
+
+  .s-cms-content--historical-page & {
+    margin-left: s(medium);
+    margin-right: s(medium);
+  }
+
+  @include mq(768px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: rem(20);
+  }
+}
+
+.inline-image-meta__source {
+  margin-bottom: rem(7);
+  text-align: right;
+  white-space: nowrap;
+
+  @include mq(768px) {
+    margin-bottom: rem(0);
+    order: 1;
+  }
+}
+
+.inline-image-meta__caption {
+  @include responsive-tween(fs(14), (1200px: fs(16)));
+
+  line-height: (20 / 14);
+  padding-right: rem(12);
+
+  @include mq(768px) {
+    line-height: (20 / 16);
+  }
+}

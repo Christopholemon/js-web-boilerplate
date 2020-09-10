@@ -1,0 +1,11 @@
+$u-letter-spacing-sizes: (
+  1,
+  2,
+  4,
+);
+
+@each $size in $u-letter-spacing-sizes {
+  .u-letter-spacing-#{$size} {
+    letter-spacing: rem($size) if($important, !important, null);
+  }
+}

@@ -1,0 +1,5 @@
+$u-pointer-events-types: (
+  none,
+) !default;
+
+@include generate-utils(pointer-events, $u-pointer-events-types);

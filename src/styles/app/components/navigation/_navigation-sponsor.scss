@@ -1,0 +1,38 @@
+.navigation-sponsor {
+  border-top: rem(1) solid;
+  display: flex;
+  justify-content: center;
+  padding: spacing(x-small);
+
+  @include mq(960px) {
+    border: none;
+    margin-top: s(small) * -1;
+  }
+}
+
+.navigation-sponsor__list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.navigation-sponsor__list-item {
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+.navigation-sponsor__link {
+  display: block;
+  text-align: center;
+  transition: opacity ease-out 0.25s;
+
+  .keyboard-focus &:focus,
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.navigation-sponsor__svg {
+  @include responsive-tween(rem(40), rem(54), height);
+}

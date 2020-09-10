@@ -1,0 +1,77 @@
+.card-player {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-player--compact-below-600 {
+  @include mq(599px, max-width) {
+    flex-direction: row;
+  }
+}
+
+.card-player__background,
+.card-player__mask {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.card-player-mask__logo {
+  height: 150%;
+  left: -33%;
+  opacity: 0.05;
+  position: absolute;
+  top: -25%;
+
+  .browser-ie & {
+    max-width: none; // prevent squishing on 3 and 4 cards-per-row layout
+  }
+
+  .card-player--compact-below-600 & {
+    @include mq(599px, max-width) {
+      height: auto;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%; // needed for IE 11 but harmless on other browsers so no need to fatten CSS with a separate rule
+    }
+  }
+}
+
+.card-player__content {
+  color: c(white);
+  padding: rem(12) rem(14) 0;
+  word-wrap: break-word;
+  z-index: z(primary above-inherit);
+
+  .card-player--compact-below-600 & {
+    @include mq(599px, max-width) {
+      padding: rem(9) rem(10);
+    }
+  }
+}
+
+.card-player__image-wrapper {
+  flex-basis: rem(176);
+  flex-grow: 1;
+  position: relative;
+}
+
+.card-player__image {
+  bottom: -43%;
+  height: 143%;
+  left: 50%;
+  max-width: none;
+  position: absolute;
+  right: s(x-small);
+  transform: translateX(-50%);
+
+  .card-player--compact-below-600 & {
+    @include mq(599px, max-width) {
+      bottom: rem(-8);
+      height: 100%;
+      left: auto;
+      transform: none;
+    }
+  }
+}

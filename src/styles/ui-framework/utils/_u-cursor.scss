@@ -1,0 +1,8 @@
+$u-cursor-types: (
+  auto,
+  default,
+  pointer,
+  text,
+) !default;
+
+@include generate-utils(cursor, $u-cursor-types);

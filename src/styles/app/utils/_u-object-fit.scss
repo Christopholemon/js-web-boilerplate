@@ -1,0 +1,9 @@
+$u-object-fit-types: (
+  cover,
+) !default;
+
+@each $type in $u-object-fit-types {
+  .u-object-fit-#{$type} {
+    object-fit: $type if($important, !important, null);
+  }
+}

@@ -1,0 +1,7 @@
+@function color($keys, $function-name: "color") {
+  @return get($colors, $keys, $function-name);
+}
+
+@function c($keys) {
+  @return color($keys, "c");
+}

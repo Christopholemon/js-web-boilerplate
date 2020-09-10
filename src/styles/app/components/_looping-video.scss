@@ -1,0 +1,28 @@
+.looping-video--inline:not(.is-adblocked) {
+  padding-top: percentage(9 / 16);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.looping-video__controls {
+  color: c(white);
+  font-family: ff(videoplayer);
+  font-size: fs(30);
+  left: s(x-small);
+  padding: rem(1); // for ios - otherwise the icon garbles
+  position: absolute;
+  top: s(x-small);
+  z-index: z(primary above-o-hero-gradient);
+}
+
+
+.looping-video__video {
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}

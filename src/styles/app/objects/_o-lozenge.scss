@@ -1,0 +1,25 @@
+.o-lozenge {
+  align-items: center;
+  border: rem(1) solid transparent;
+  color: c(white);
+  display: inline-flex;
+  font-size: fs(11);
+  font-weight: fw(500);
+  justify-content: center;
+  letter-spacing: rem(1);
+  line-height: rem(6); // Not a mistake. Crops it to the exact height of the text. Relative numbers have rounding issues
+  padding: rem(5) rem(6) rem(5) rem(7);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.o-lozenge--small {
+  border: none;
+  font-size: fs(10);
+  line-height: rem(9);
+  padding: rem(3) rem(5) rem(2);
+}
+
+.o-lozenge--live-stream {
+  min-height: rem(24); // The computed height of .content-type-indicator
+}

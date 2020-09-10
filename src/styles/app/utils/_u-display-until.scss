@@ -1,0 +1,11 @@
+$u-display-until-breakpoint-types: (
+  767px,
+);
+
+@each $breakpoint in $u-display-until-breakpoint-types {
+  .u-display-none-until-#{strip-unit($breakpoint)} {
+    @include mq($breakpoint, max-width) {
+      display: none if($important, !important, null);
+    }
+  }
+}

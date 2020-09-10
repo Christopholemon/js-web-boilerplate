@@ -1,0 +1,71 @@
+.match-centre-form-guide {
+  padding: s(medium) s(small);
+
+  @include mq(768px) {
+    padding: s(medium);
+  }
+}
+
+.match-centre-form-guide__list {
+  flex-basis: 50%;
+}
+
+.match-centre-form-guide__list--home {
+  border-right: rem(1) solid c(gray d8d8d8);
+  padding-right: s(medium);
+}
+
+.match-centre-form-guide__list--away {
+  padding-left: s(medium);
+}
+
+.match-centre-form-guide__item {
+  display: flex;
+  margin-bottom: s(small);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .match-centre-form-guide__list--home & {
+    text-align: right;
+  }
+
+  @include mq(767px, max-width) {
+    flex-direction: column;
+
+    .match-centre-form-guide__list--home & {
+      align-items: flex-end;
+    }
+  }
+
+  @include mq(768px) {
+    align-items: center;
+
+    .match-centre-form-guide__list--home & {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.match-centre-form-guide__team-form-icon {
+  @include mq(767px, max-width) {
+    margin-bottom: s(x-small);
+  }
+
+  .match-centre-form-guide__list--away & {
+    margin-right: s(small);
+  }
+
+  .match-centre-form-guide__list--home & {
+    margin-left: s(small);
+
+    @include mq(768px) {
+      order: 1;
+    }
+  }
+}
+
+.match-centre-form-guide__summary {
+  font-size: fs(14);
+}

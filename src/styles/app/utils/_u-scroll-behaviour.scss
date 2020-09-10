@@ -1,0 +1,3 @@
+.u-scroll-behaviour-smooth {
+  scroll-behavior: smooth if($important, !important, null);
+}

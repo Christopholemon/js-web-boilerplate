@@ -1,0 +1,6 @@
+// Calculates the sRGB luma of a colour
+// Adapted from https://lnikki.la/articles/sass-better-colour-based-on-brightness/
+
+@function luma($color) {
+  @return (0.2126 * red($color) + 0.7152 * green($color) + 0.0722 * blue($color)) / 255;
+}

@@ -1,0 +1,17 @@
+.navigation__menu {
+  border-top: rem(1) solid;
+  display: none;
+  flex-direction: column;
+  height: 100%; // TODO: When we do the horiz scrollbar, this may need to be set dynamically on custom-scrollbar-target
+  overflow: hidden;
+  width: 100%;
+
+  .is-expanded & {
+    display: flex;
+  }
+
+  @include mq(960px) {
+    border: none;
+    display: flex;
+  }
+}

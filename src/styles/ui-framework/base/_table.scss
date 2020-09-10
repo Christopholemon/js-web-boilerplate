@@ -1,0 +1,6 @@
+@if ($b-box-sizing-border-box == true) {
+  th,
+  td {
+    box-sizing: content-box;
+  }
+}

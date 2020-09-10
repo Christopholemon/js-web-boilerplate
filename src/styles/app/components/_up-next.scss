@@ -1,0 +1,38 @@
+.up-next {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.up-next__title {
+  color: c(white);
+  font-size: fs(14);
+  font-weight: fw(700);
+  letter-spacing: rem(2);
+  line-height: (21 / 14);
+  margin-bottom: s(x-small);
+  margin-top: rem(6);
+  opacity: 0.8;
+  text-transform: uppercase;
+
+  @include mq(768px) {
+    line-height: 1;
+    margin-bottom: rem(12);
+    margin-top: 0;
+  }
+}
+
+.up-next__playlist-wrapper {
+  @include responsive-tween((960px: rem(568)), (1280px: rem(606)), min-height, false);
+
+  height: rem(180);
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @include mq(960px) {
+    height: auto;
+    max-height: rem(710);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

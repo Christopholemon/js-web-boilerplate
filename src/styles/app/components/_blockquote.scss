@@ -1,0 +1,73 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+.blockquote {
+  align-self: center; // centre alignment for ie flex container
+  color: c(core text-dark);
+  display: block;
+  font-family: ff(noto);
+  margin: 0 auto; // alignment for no flex container
+  max-width: rem(680);
+  padding: rem(32) 0;
+  position: relative;
+  z-index: z(primary);
+}
+
+.blockquote__quote-left {
+  height: rem(45);
+  width: rem(48);
+
+  @include mq(1400px) {
+    margin-left: rem(-60);
+    position: absolute;
+  }
+}
+
+.blockquote__quote-right {
+  fill: c(white);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 140%; // Magic number to match the design
+  z-index: -1;
+
+  .s-cms-content--historical-page & {
+    fill: c(gray dcdcdc);
+  }
+
+  @include mq(1400px) {
+    width: 195%; // Magic number to match the design
+  }
+}
+
+.blockquote__text {
+  font-size: fs(20);
+  font-style: italic;
+  font-weight: fw(700);
+  letter-spacing: rem(-1);
+  line-height: (28 / 20);
+  max-width: rem(620);
+  padding: rem(7) 0 rem(23);
+
+  @include mq(1400px) {
+    font-size: fs(26);
+    line-height: (40 / 26);
+    padding-top: s(medium);
+  }
+}
+
+.blockquote-cite {
+  font-size: fs(14);
+  font-style: normal;
+  line-height: 1;
+}
+
+.blockquote-cite__primary {
+  display: block;
+  font-size: fs(16);
+  font-weight: fw(700);
+}
+
+.blockquote-cite__secondary {
+  color: c(core text);
+}

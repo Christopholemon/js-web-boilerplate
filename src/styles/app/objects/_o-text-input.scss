@@ -1,0 +1,45 @@
+.o-text-input {
+  background: c(white);
+  border: none;
+  border-bottom: rem(2) solid c(gray d8d8d8);
+  border-radius: 0;
+  padding: 0;
+
+  @at-root input#{&},
+  textarea#{&} {
+    color: t(nrl secondary);
+  }
+
+  @at-root textarea#{&} {
+    line-height: (20 / 14);
+    min-height: rem(122);
+    resize: vertical;
+  }
+
+  &:focus {
+    border-bottom-color: c(gray 888888);
+  }
+
+  &[aria-invalid="true"] {
+    border-bottom-color: currentColor;
+    color: c(red d0011b) if($important, !important, null);
+
+    @at-root label#{&} {
+      border-bottom-color: c(red d0011b);
+      color: inherit if($important, !important, null);
+    }
+  }
+
+  &[readonly] {
+    color: c(gray 888888);
+  }
+
+  &[type="password"] {
+    font-size: fs(26);
+    font-weight: fw(700);
+  }
+}
+
+.o-text-input--no-border {
+  border-bottom: none;
+}

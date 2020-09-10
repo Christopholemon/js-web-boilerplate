@@ -1,0 +1,226 @@
+$l-grid-spacings-at-breakpoints: true;
+
+$l-grid-defined-columns: null !default;
+$l-grid-sizes: 10%, 20%, 25%, 30%, 33.3333%, 40%, 50%, 60%, 66.6666%, 70%, 75%, 80%, 90%, 100% !default;
+$l-grid-breakpoints: 480px, 600px, 768px, 1024px, 1280px !default;
+$l-grid-breakpoints-and-sizes: null !default;
+$l-grid-visibility-at-breakpoints: false !default;
+
+$l-grid-alignments: (
+  center: center,
+  end: flex-end,
+) !default;
+
+$l-grid-spacings: (
+  small: 4px,
+  medium: 8px,
+  large: 16px,
+) !default;
+$l-grid-spacings-at-breakpoints: false !default;
+
+@function l-get-grid-cell-props($size) {
+  $cell-name: null;
+  $cell-value: null;
+
+  @if ($size == auto) {
+    $cell-name: $size;
+    $cell-value: $size;
+  }
+  @else if (type-of($l-grid-defined-columns) == "number") {
+    @if ($size <= $l-grid-defined-columns) {
+      $cell-name: $size;
+      $cell-value: strip-unit($size / $l-grid-defined-columns);
+    }
+  }
+  @else if (type-of($size) == "number" and strip-unit($size) > 0) {
+    $cell-name: floor(strip-unit($size));
+    $cell-value: strip-unit($size / 100);
+  }
+
+  @return ($cell-name, $cell-value);
+}
+
+@mixin l-generate-grid-cell-rules($sizes, $breakpoint-name: null) {
+  @each $size in $sizes {
+    $cell-props: l-get-grid-cell-props($size);
+    $at-selector: "";
+
+    @if ($breakpoint-name) {
+      $at-selector: "-at-#{strip-unit($breakpoint-name)}";
+    }
+
+    @if (nth($cell-props, 2) == auto or type-of(nth($cell-props, 2)) == "number") {
+      $selector: ".l-grid__cell--#{nth($cell-props, 1)}";
+
+      $selector: unquote($selector + $at-selector);
+
+      #{$selector} {
+        flex-basis: if(nth($cell-props, 2) == auto, 0, percentage(nth($cell-props, 2)));
+        max-width: if(nth($cell-props, 2) == auto, 100%, percentage(nth($cell-props, 2)));
+      }
+    }
+
+    @if ($l-grid-visibility-at-breakpoints) {
+      .l-grid__cell--visibility-hidden#{unquote($at-selector)} {
+        display: none;
+      }
+
+      .l-grid__cell--visibility-visible#{unquote($at-selector)} {
+        display: flex;
+      }
+    }
+  }
+}
+
+@mixin l-generate-grid-cell-at-breakpoint($breakpoint, $sizes, $type: "normal") {
+  $breakpoint-name: null;
+  $breakpoint-value: null;
+
+  @if (type-of($breakpoint) == "list") {
+    $breakpoint-name: nth($breakpoint, 1);
+
+    @if (type-of(nth($breakpoint, 2)) == "number") {
+      $breakpoint-value: nth($breakpoint, 2);
+    }
+    @else {
+      $breakpoint-value: nth($breakpoint, 1);
+    }
+  }
+  @else if (type-of($breakpoint) == "number") {
+    $breakpoint-name: $breakpoint;
+    $breakpoint-value: $breakpoint;
+  }
+
+  @if ($breakpoint-value == 0) {
+    $breakpoint-name: null;
+  }
+
+  @if ($breakpoint-name) {
+    @include mq($breakpoint-value) {
+      @include l-generate-grid-cell-rules($sizes, $breakpoint-name);
+    }
+  }
+  @else {
+    @include l-generate-grid-cell-rules($sizes);
+  }
+}
+
+.l-grid {
+  @if ($b-box-sizing-border-box != true) {
+    box-sizing: border-box;
+  }
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.l-grid--dont-wrap {
+  flex-wrap: nowrap;
+}
+
+.l-grid__cell {
+  @if ($b-box-sizing-border-box != true) {
+    box-sizing: border-box;
+  }
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.l-grid__cell--do-shrink {
+  flex-shrink: 1;
+}
+
+.l-grid__cell--dont-grow {
+  flex-grow: 0;
+}
+
+@if (type-of($l-grid-breakpoints-and-sizes) == "map") {
+  @each $breakpoint, $sizes in $l-grid-breakpoints-and-sizes {
+    @include l-generate-grid-cell-at-breakpoint($breakpoint, $sizes);
+  }
+}
+@else {
+  @include l-generate-grid-cell-rules($l-grid-sizes);
+
+  @each $breakpoint in $l-grid-breakpoints {
+    @include l-generate-grid-cell-at-breakpoint($breakpoint, $l-grid-sizes);
+  }
+}
+
+@each $name, $value in $l-grid-alignments {
+  .l-grid__cell--align-#{$name} {
+    align-items: $value;
+  }
+
+  .l-grid__cell--justify-#{$name} {
+    justify-content: $value;
+  }
+}
+
+@mixin l-generate-grid-spacings-rules ($selector, $value) {
+  .l-grid--spacing-#{$selector} {
+    margin-left: ($value / 2) * -1;
+    margin-right: ($value / 2) * -1;
+
+    > .l-grid__cell {
+      margin-bottom: $value;
+      padding-left: $value / 2;
+      padding-right: $value / 2;
+    }
+  }
+
+  .l-grid__cell--padding-#{$selector} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .l-grid__cell--padding-left-#{$selector} {
+    padding-left: $value / 2;
+  }
+
+  .l-grid__cell--padding-right-#{$selector} {
+    padding-right: $value / 2;
+  }
+}
+
+@mixin l-generate-grid-spacings ($spacing, $breakpoint: null) {
+  $name: nth($spacing, 1);
+  $value: if(unitless(nth($spacing, 2)), nth($spacing, 2) * 1px, nth($spacing, 2));
+
+  @if ($breakpoint == 0) {
+    $breakpoint: null;
+  }
+
+  $selector: $name;
+
+  @if ($breakpoint) {
+    $selector: $selector + "-at-#{strip-unit($breakpoint)}";
+
+    @include mq($breakpoint) {
+      @include l-generate-grid-spacings-rules($selector, $value);
+    }
+  }
+  @else {
+    @include l-generate-grid-spacings-rules($selector, $value);
+  }
+}
+
+@each $spacing in $l-grid-spacings {
+  @if ($l-grid-spacings-at-breakpoints == true) {
+    @if (type-of($l-grid-breakpoints-and-sizes) == "map") {
+      @each $breakpoint, $sizes in $l-grid-breakpoints-and-sizes {
+        @include l-generate-grid-spacings($spacing, $breakpoint);
+      }
+    }
+    @else {
+      @each $breakpoint in $l-grid-breakpoints {
+        @include l-generate-grid-spacings($spacing, $breakpoint);
+      }
+    }
+  }
+  @else {
+    @include l-generate-grid-spacings($spacing);
+  }
+}

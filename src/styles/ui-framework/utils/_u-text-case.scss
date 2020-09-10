@@ -1,0 +1,8 @@
+$u-text-case-types: (
+  lower: lowercase,
+  normal: none,
+  title: capitalize,
+  upper: uppercase,
+) !default;
+
+@include generate-utils((text-case, text-transform), $u-text-case-types);

@@ -1,0 +1,5 @@
+$u-white-space-types: (
+  no-wrap: nowrap,
+) !default;
+
+@include generate-utils(white-space, $u-white-space-types);

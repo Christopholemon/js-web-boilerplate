@@ -1,0 +1,7 @@
+@function font-family($keys, $function-name: "font-family") {
+  @return get($font-families, $keys, $function-name);
+}
+
+@function ff($keys) {
+  @return font-family($keys, "ff");
+}

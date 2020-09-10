@@ -1,0 +1,10 @@
+@function get-legible-color($base, $option-1: c(black), $option-2: c(white)) {
+  $base-luma: luma($base);
+  $option-1-luma: luma($option-1);
+  $option-2-luma: luma($option-2);
+
+  $option-1-diff: abs($base-luma - $option-1-luma);
+  $option-2-diff: abs($base-luma - $option-2-luma);
+
+  @return if($option-1-diff >= $option-2-diff, $option-1, $option-2);
+}

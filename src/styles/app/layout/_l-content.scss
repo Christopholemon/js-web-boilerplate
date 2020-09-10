@@ -1,0 +1,31 @@
+.l-content {
+  display: flex;
+  margin: auto;
+  max-width: $l-content-max-width;
+  position: relative;
+  width: 100%;
+  z-index: z(primary l-content);
+
+  @include mq(960px) {
+    padding: 0 s(small);
+  }
+
+  @include mq(1200px) {
+    padding: 0 s(medium);
+  }
+}
+
+.l-content--full-bleed {
+  max-width: none;
+}
+
+.l-content__primary {
+  flex-grow: 1;
+  min-width: 0;
+  width: 100%;
+
+  .l-content--full-bleed & {
+    margin: auto;
+    max-width: $l-content-max-width;
+  }
+}

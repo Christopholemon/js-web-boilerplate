@@ -1,0 +1,168 @@
+$tab-list-height: rem(44);
+// below maps arent used in MC, they are used for stickio positioning
+$match-header-audio-heights: (
+  0: rem(98),
+  768px: rem(138),
+  960px: rem(138),
+);
+
+$match-header-heights: (
+  0: rem(56),
+  768px: rem(96),
+  960px: rem(96),
+);
+
+.tabs__scroller {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.tabs-stickio {
+  .match-centre & {
+    margin-top: get($match-header-heights, 0) * -1;
+    position: absolute;
+
+    .browser-ie &,
+    .browser-safari & {
+      margin-top: auto if($important, !important, null);
+      position: static if($important, !important, null);
+    }
+
+    @include mq(768px) {
+      margin-top: get($match-header-heights, 768px) * -1;
+    }
+
+    .g-navigation-is-pinned & {
+      margin-top: (get($match-header-heights, 0) + $tab-list-height) * -1;
+
+      @include mq(768px) {
+        margin-top: (get($match-header-heights, 768px) + $tab-list-height) * -1;
+      }
+    }
+  }
+
+  .match-centre--with-audio & {
+    margin-top: get($match-header-audio-heights, 0) * -1;
+
+    @include mq(768px) {
+      margin-top: get($match-header-audio-heights, 768px) * -1;
+    }
+  }
+}
+
+.tabs__list {
+  display: inline-flex;
+
+  &.is-stickio {
+    background: c(white);
+    border-top: 1px solid c(gray eeeeee);
+    box-shadow: 0 rem(8) rem(6) rem(2) rgba(c(black), 0.04);
+    transition: top $navigation-transition-speed;
+    z-index: z(primary stickio-tabs);
+
+    @include mq(499px, max-width) {
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    .match-centre & {
+      top: get($match-header-heights, 0);
+
+      @include mq(768px) {
+        top: get($match-header-heights, 768px);
+      }
+
+      .g-navigation-is-pinned & {
+        @each $breakpoint, $navigation-height in $navigation-heights {
+          @include mq($breakpoint) {
+            @if $navigation-height == "auto" {
+              top: get($match-header-heights, 960px);
+            }
+            @else {
+              top: $navigation-height + get($match-header-heights, $breakpoint);
+            }
+          }
+        }
+      }
+    }
+
+    .match-centre--with-audio & {
+      top: get($match-header-audio-heights, 0);
+
+      @include mq(768px) {
+        top: get($match-header-audio-heights, 768px);
+      }
+
+      .g-navigation-is-pinned & {
+
+        @each $breakpoint, $navigation-height in $navigation-heights {
+          @include mq($breakpoint) {
+            @if $navigation-height=="auto" {
+              top: get($match-header-audio-heights, 960px);
+            }
+            @else {
+              top: $navigation-height + get($match-header-audio-heights, $breakpoint);
+            }
+          }
+        }
+      }
+    }
+
+    .browser-iphone & {
+      overflow: scroll;
+    }
+  }
+}
+
+.tabs__item {
+  &:first-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+.tabs-trigger {
+  border-bottom: rem(4) solid transparent;
+  color: c(gray 666666);
+  display: flex;
+  flex-direction: column;
+  font-size: fs(14);
+  line-height: 1;
+  margin: 0 s(x-small);
+  padding: rem(14) rem(14) rem(11);
+  white-space: nowrap;
+
+  &:hover {
+    border-bottom-color: c(gray d8d8d8);
+  }
+
+  &.is-active {
+    color: c(gray 222222);
+    font-weight: fw(500);
+  }
+}
+
+.tabs-trigger__spacer {
+  display: block;
+  font-weight: fw(500);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.tabs__panel {
+  margin-top: rem(20);
+
+  @include mq(768px) {
+    margin-top: rem(36);
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+}

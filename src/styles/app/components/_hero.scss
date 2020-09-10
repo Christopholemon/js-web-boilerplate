@@ -1,0 +1,360 @@
+$hero-player-profile-image-captain-position: calc((40 / 744) * (100% - #{rem(72)}));
+// Logic for above value: 40/744 is the gap between ball cut off and bottom of image
+// times that by the height of the parent which is 100% - padding applied.
+
+$hero-max-heights: (
+  default: 630,
+  gallery: 764,
+  package: 730,
+  profile: 744,
+  short: 480,
+);
+
+$hero-ratios: (
+  default: (
+    0: 100vw * (576 / 768),
+    768: calc((100vw - #{rem(184)}) * (#{get($hero-max-heights, default)} / 1736)),
+  ),
+  gallery: (
+    0: 100vw * (1024 / 768),
+    768: calc((100vw - #{rem(184)}) * (#{get($hero-max-heights, gallery)} / 1736)),
+  ),
+  package: (
+    0: 100vw * (720 / 960),
+    960: calc((100vw - #{rem(184)}) * (#{get($hero-max-heights, package)} / 1736)),
+  ),
+  profile: (
+    0: 100vw * (576 / 768),
+    768: calc((100vw - #{rem(184)}) * (#{get($hero-max-heights, profile)} / 1736)),
+  ),
+  short: (
+    0: 100vw * (410 / 768),
+    768: calc(100vw * (#{get($hero-max-heights, short)} / 1736)),
+    960: calc((100vw - #{rem(184)}) * (#{get($hero-max-heights, short)} / 1736)),
+  ),
+);
+
+.hero-wrap {
+  position: relative;
+}
+
+.hero {
+  @include responsive-tween(rem(20), rem(32), margin-bottom);
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: calc(100% + #{rem(1)});
+  margin-left: rem(-1px);
+  overflow: hidden;
+  position: relative;
+
+  @include mq(960px) {
+    background-size: calc(100% - #{rem(181)}); // 3px less than nav to ensure no space
+  }
+}
+
+@each $hero-type, $breakpoints in $hero-ratios {
+  .hero-size--#{$hero-type} {
+    @include mq(1736px) {
+      max-height: get($hero-max-heights, $hero-type) * 1px;
+    }
+
+    @each $breakpoint, $ratio in $breakpoints {
+      @include mq($breakpoint) {
+        height: $ratio;
+      }
+    }
+  }
+}
+
+.hero--gallery {
+  @include mq(767px, max-width) {
+    margin-bottom: -30%;
+  }
+}
+
+.hero-size--my-account {
+  height: rem(165);
+
+  @include mq(768px) {
+    height: rem(200);
+  }
+}
+
+.hero-size--match-centre {
+  height: rem(280);
+
+  @include mq(768px) {
+    height: rem(370);
+  }
+}
+
+.hero--no-image {
+  padding: 0;
+}
+
+.hero--position-absolute {
+  margin-bottom: 0 if($important, !important, null);
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.hero--player-profile {
+  @include responsive-tween((768px: rem(40)), rem(64), margin-bottom);
+
+  margin-bottom: rem(-48);
+}
+
+.hero--club-profile {
+  @include responsive-tween((768px: rem(180)), rem(116), margin-bottom);
+
+  margin-bottom: rem(-48);
+}
+
+.hero--not-ideal {
+  background-color: c(gray 222222);
+  margin-bottom: 0; // TODO: Figure out why we have margins on all article heroes, but only this one exhibits space
+}
+
+.hero--video {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero__angle-overlay {
+  left: 85%;
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.hero__angle-overlay--right {
+  left: 75%;
+
+  .hero--match-centre & {
+    left: 50%;
+  }
+}
+
+.hero__angle-overlay--left {
+  left: calc(-25% + #{rem(1)}); // without this calc, there is a small grainy line between segments
+
+  .hero--match-centre & {
+    left: calc(-50% + #{rem(1)}); // without this calc, there is a small grainy line between segments
+  }
+}
+
+.hero__background {
+  display: none;
+  filter: blur(10px);
+  opacity: 0.25;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  will-change: scroll-position;
+
+  @include mq(768px) {
+    display: block;
+  }
+}
+
+.hero__image {
+  height: 100%;
+  left: 50%;
+  min-width: 100%;
+  position: absolute;
+  transform: translateX(-50%);
+  will-change: scroll-position;
+
+  .hero--my-account & {
+    max-width: none;
+  }
+
+  .hero--match-centre & {
+    object-fit: cover;
+  }
+}
+
+.hero__image--not-ideal {
+  min-width: 0;
+}
+
+.hero-card-wrapper {
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  max-width: $l-content-max-width;
+  padding: 0 s(small);
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  @include mq(768px) {
+    position: absolute;
+  }
+
+  @include mq(960px) {
+    padding: 0 rem(40);
+  }
+
+  @include mq(1200px) {
+    padding: 0 rem(48);
+  }
+}
+
+.hero-card-wrapper--club-profile {
+  position: relative;
+}
+
+.hero-image-wrapper {
+  height: get($hero-ratios, profile 0);
+  left: 0;
+  margin: 0 auto;
+  max-height: 744px; // pixel value as images dont scale
+  max-width: $l-content-max-width;
+  padding: 0 s(small);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  @include mq(768px) {
+    height: get($hero-ratios, profile 768);
+    padding: 0 s(medium);
+  }
+}
+
+.hero-player-profile-image {
+  height: calc(100% - #{rem(48)});
+  left: 50%;
+  padding-top: s(x-small);
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  z-index: z(primary above-o-hero-gradient);
+
+  @include mq(768px) {
+    bottom: 0;
+    height: 95%;
+    left: 48%;
+    transform: none;
+    z-index: z(primary hero-player-profile-image);
+  }
+
+  @include mq(1500px) {
+    left: 35%;
+  }
+}
+
+.hero-player-profile-image--captain {
+  padding-top: 0;
+  top: $hero-player-profile-image-captain-position;
+  z-index: z(primary hero-player-profile-image);
+
+  @include mq(768px) {
+    bottom: auto;
+    height: 100%;
+    top: 5%; // represents the space between ball overhang and player
+  }
+}
+
+.hero__club-card {
+  position: relative;
+  width: 100%;
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.hero__club-card--player-profile {
+  margin-top: 0;
+
+  @include mq(768px) {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+  }
+
+  @include mq(1500px) {
+    left: auto;
+    right: auto;
+    width: 38%;
+  }
+}
+
+.hero__club-card--club-profile {
+  @include responsive-tween((768px: rem(-160)), rem(-64), bottom, false);
+
+  @include mq(768px) {
+    max-width: rem(550);
+    position: absolute;
+    width: calc(50% - #{rem(16)});
+  }
+
+  @include mq(960px) {
+    width: calc(50% - #{rem(40)});
+  }
+
+  @include mq(1200px) {
+    width: calc(50% - #{rem(48)});
+  }
+}
+
+.hero-header {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.hero-header__title {
+  @include responsive-tween(fs(36), fs(58));
+  @include responsive-tween(0, rem(-10), margin-bottom);
+  @include responsive-tween(0, rem(-10), margin-top);
+
+  font-family: ff(rl2) if($important, !important, null);
+
+  line-height: (40 / 36);
+
+  @include mq(768px) {
+    line-height: (72 / 58);
+  }
+}
+
+.hero__chervon {
+  @include responsive-tween(rem(45), rem(96), height width);
+}
+
+.hero-blurb--with-margin-bottom {
+  @include responsive-tween(rem(20), rem(48), margin-bottom);
+
+  margin-top: rem(-1);  // for chrome rounding issue
+  position: relative;
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.hero-blurb__title {
+  font-size: fs(20);
+  font-weight: fw(500);
+  line-height: (22 / 16);
+
+  @include mq(768px) {
+    font-weight: fw(700);
+    margin-bottom: rem(-12);
+  }
+}
+
+.hero-price,
+.hero-blurb__text {
+  @include responsive-tween(rem(20), rem(36), padding-top);
+}
+
+.hero-blurb__text {
+  @include responsive-tween(rem(20), rem(36), padding-bottom);
+  line-height: (22 / 16);
+
+}
+
+.hero-blurb__button {
+  @include responsive-tween(rem(22), rem(60), margin-bottom);
+  max-width: rem(360);
+}

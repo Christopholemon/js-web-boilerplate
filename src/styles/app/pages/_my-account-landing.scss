@@ -1,0 +1,26 @@
+// TODO: Refactor all of this
+.my-account-landing__favourite-logo {
+  height: rem(65);
+  width: rem(65);
+
+  @include mq(768px) {
+    height: rem(90);
+    width: rem(90);
+  }
+}
+
+.my-account-landing-favourite__placeholder-plus {
+  fill: c(gray 767676);
+  height: rem(13);
+  margin-bottom: rem(40);
+  margin-top: rem(-40);
+  width: rem(13);
+
+  @include mq(768px) {
+    height: rem(18);
+    margin-bottom: rem(56);
+    margin-top: rem(-56);
+    width: rem(18);
+  }
+}
+

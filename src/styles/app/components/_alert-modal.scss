@@ -1,0 +1,20 @@
+.alert-modal {
+  border-top: rem(2) solid t(nrl tint);
+  bottom: 0;
+  padding: rem(90) 0;
+  position: fixed;
+  text-align: center;
+  z-index: z(alert-modal);
+}
+
+.alert-modal-close {
+  color: c(gray 666666);
+  position: absolute;
+  right: s(small);
+  top: s(small);
+}
+
+.alert-modal-close__cross {
+  height: rem(17);
+  width: rem(17);
+}

@@ -1,0 +1,30 @@
+.is-stickio {
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: top $navigation-transition-speed;
+  width: 100vw if($important, !important, null);
+  z-index: z(primary stickio);
+
+  @include mq(960px) {
+    left: $navigation-desktop-width;
+    width: calc(100vw - #{$navigation-desktop-width}) if($important, !important, null);
+  }
+
+  .g-navigation-is-pinned & {
+    @each $breakpoint, $navigation-height in $navigation-heights {
+      @include mq($breakpoint) {
+        @if $navigation-height == "auto" {
+          top: 0;
+        }
+        @else {
+          top: $navigation-height;
+        }
+      }
+    }
+  }
+
+  .browser-is-embedded & {
+    top: 0 if($important, !important, null);
+  }
+}

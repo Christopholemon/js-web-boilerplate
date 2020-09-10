@@ -1,0 +1,26 @@
+@function z-index($keys, $function-name: "z-index") {
+  $original-map: $z-indexes;
+  $map: $original-map;
+  $stack-trace-name: $function-name;
+  $found-index: null;
+
+  @each $key in $keys {
+    @if (type-of($map) == "map") {
+      $found-index: index(map-keys($map), $key);
+      $map: get($map, $key);
+    }
+    @else {
+      $found-index: index($map, $key);
+    }
+  }
+
+  @if ($found-index == null) {
+    $error: log-error("No map found for #{unquote($stack-trace-name)}(#{$keys}). Map contains #{$original-map}");
+  }
+
+  @return $found-index;
+}
+
+@function z($keys) {
+  @return z-index($keys, "z");
+}

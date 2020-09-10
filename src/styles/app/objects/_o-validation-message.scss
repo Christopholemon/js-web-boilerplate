@@ -1,0 +1,38 @@
+%o-validation-message {
+  font-size: fs(12);
+  margin-top: rem(3);
+  text-align: right;
+
+  &::before {
+    content: "\A0";
+  }
+}
+
+.o-validation-message {
+  @extend %o-validation-message;
+
+  color: c(red d0011b);
+  opacity: 0;
+  transition: all ease 0.15s;
+  visibility: hidden;
+  white-space: nowrap;
+
+  [aria-invalid="true"] ~ &,
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.o-validation-message--generic {
+  font-size: fs(14);
+  margin-top: 0;
+  position: relative;
+  text-align: center;
+  top: rem(-6);
+  white-space: normal;
+
+  &::before {
+    display: none;
+  }
+}

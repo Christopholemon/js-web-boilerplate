@@ -1,0 +1,52 @@
+.header {
+  position: relative;
+  z-index: z(primary above-o-hero-gradient);
+}
+
+.header__topic-btyb-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: s(small);
+
+  @include mq(767px, max-width) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  @include mq(768px) {
+    height: rem(50);
+  }
+}
+
+.header__btyb {
+  @include mq(767px, max-width) {
+    margin-top: s(small);
+  }
+}
+
+.header__title {
+  @include responsive-tween(fs(38), fs(56));
+
+  font-weight: fw(700);
+  line-height: (48 / 38);
+  margin-bottom: rem(20);
+
+  @include mq(768px) {
+    line-height: (60 / 56);
+  }
+
+  .video & {
+    color: c(white);
+  }
+}
+
+.header__title--article {
+  min-height: rem(80);
+}
+
+.header__timestamp {
+  color: c(core text-light);
+  display: block;
+  text-transform: uppercase;
+}

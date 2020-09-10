@@ -1,0 +1,39 @@
+.match-centre-title {
+  color: c(white);
+  text-align: center;
+
+  @include mq(960px) {
+    margin-bottom: s(x-small);
+  }
+}
+
+.match-centre-title__competition {
+  @include responsive-tween(fs(18), (768px: fs(20)));
+
+  color: inherit;
+  font-size: fs(18);
+  line-height: (22 / 18);
+
+  @include mq(768px) {
+    line-height: (40 / 20);
+  }
+}
+
+.match-centre-title__logo {
+  @include responsive-tween(rem(80), (960px: rem(100)), height);
+
+  margin-bottom: rem(4);
+}
+
+.match-centre-title__date {
+  @include responsive-tween(fs(12), (960px: fs(14)));
+
+  color: inherit;
+  letter-spacing: rem(2);
+  line-height: (18 / 12);
+  text-transform: uppercase;
+
+  @include mq(768px) {
+    line-height: (18 / 14);
+  }
+}

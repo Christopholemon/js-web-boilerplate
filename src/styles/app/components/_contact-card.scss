@@ -1,0 +1,48 @@
+.contact-card {
+  padding: s(small);
+
+  @include mq(768) {
+    padding: rem(22);
+  }
+}
+
+.contact-card__heading {
+  font-size: fs(18);
+  letter-spacing: rem(1.5);
+  margin: rem(4);
+  text-align: center;
+  text-transform: uppercase;
+
+  @include mq(768) {
+    font-size: fs(20);
+  }
+}
+
+.contact-card__svg {
+  height: rem(20);
+  margin-right: rem(3);
+  width: rem(20);
+}
+
+.contact-card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: rem(4);
+  text-align: center;
+}
+
+.contact-card__content--phone {
+  font-size: fs(26);
+  letter-spacing: rem(2.5);
+}
+
+.contact-card__content--address {
+  font-size: fs(18);
+  line-height: (26 / 20);
+
+  @include mq(768) {
+    font-size: fs(20);
+  }
+}

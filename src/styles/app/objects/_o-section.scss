@@ -1,0 +1,19 @@
+// NB. This is affected by .s-cms-content. If you make changes, ensure you test it there
+
+$o-section-variants-and-sizes: (
+  "": 64,
+  "--half-gutter": 32,
+  "--quarter-gutter": 16,
+);
+
+.o-section {
+  @each $variant, $size in $o-section-variants-and-sizes {
+    &#{$variant} {
+      @include responsive-tween(rem($size), rem($size * 2), margin-bottom);
+
+      &:last-child {
+        @include responsive-tween(rem($size / 2), rem($size), margin-bottom);
+      }
+    }
+  }
+}
