@@ -1,6 +1,9 @@
+@use './global';
+@use './animations';
+
 html {
   font-size: 16px;
-  color: blue;
+  color: global.$blue;
   margin: 5rem;
 }
 
@@ -12,4 +15,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+  border: 20px solid global.$green;
+  padding: 2rem;
 }

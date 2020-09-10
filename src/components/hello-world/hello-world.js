@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import './hello-world.scss'
 
 /*
@@ -6,12 +6,12 @@ import './hello-world.scss'
 
 function HelloWorld() {
   return (
-      <Fragment>
+      <>
         <h1 className="title">
           HELLO WORLD!!!!!???!??!?!?!@@!!!!!
         </h1>
-        <p>Here is some other content and shit</p>
-      </Fragment>
+        <p>Here is some other content and stuff and junk</p>
+      </>
   );
 }
 
@@ -22,17 +22,17 @@ export default HelloWorld;
 import { useCount, useDocumentTitle, useFormInput, useWindowResolution } from './hooks/index';
 
 function HelloWorld() {
-  const name = useFormInput("Hello");
-  const location = useFormInput("World");
+  const name = useFormInput("Blah Blah");
+  const location = useFormInput("Hello World"); 
   const count = useCount(0, 1);
   const resolution = useWindowResolution();
   
   useDocumentTitle(name.value + " from " + location.value);
 
   return (
-    <Fragment>
+    <>
       <h1 className="title">
-        HELLO WORLD!!!!
+        HELLO WORLD@#$%
       </h1>
       <p>Here is some tests using hooks</p>
       <section className="form">
@@ -50,7 +50,8 @@ function HelloWorld() {
         </form>
       </section>
       <section>
-        <button onClick={ count.onClick }>
+        {/* <button onClick={ count.onClick }> */}
+        <button { ...count }>
           Click me
         </button>
       </section>
@@ -65,7 +66,7 @@ function HelloWorld() {
           You clicked the magic button {count.value} times
         </h3>
       </section>
-    </Fragment>
+    </>
   );
 }
 

@@ -3,11 +3,13 @@
 **TODO** 
 // - Node w/Dotenv + cli usage
 - Express w/Helmet, Cors, static/public/file serving
+- Move server to dedicated folder
+- Service workers make work and stuff
 - HTML templating/building with express
 - ESM? How to deal with modules; require or import
 - Babel
 - React + react dom
-- React hooks w/Context API
+- React hooks + Context API
 - Webpack working happily and everything playing nice
 - TS and Jest
 - Linting

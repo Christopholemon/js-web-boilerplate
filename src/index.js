@@ -1,12 +1,4 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// ReactDOM.render(
-//   <h1>Hello, world!AAAAAAAAABBBB</h1>,
-//   document.getElementById('root')
-// );
-
-// import './index.scss';
+// import './main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HelloWorld from './components';

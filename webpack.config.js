@@ -15,7 +15,7 @@ module.exports = {
   //   entrypoints: true,
   //   errors: true
   // },
-  watch: false,
+  // watch: false,
   watchOptions: {
     ignored: ['node_modules/**']
   },
@@ -64,6 +64,7 @@ module.exports = {
   //   extensions: [' ', '.js', '.jsx', '.scss']
   // },
   plugins: [
+    // cleaning the dist folder breaks the dev build - only the changed files get rebuilt, so html is lost on rebuild :(
     // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
