@@ -2,12 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>js-web-boilerplate</title>
+    <title>JS Web Boilerplate</title>
 </head>
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" class="container">
-        Default html. React app on delay to confirm its all behaving properly
-    </div>
+    <section class="banner container container--full">
+        <picture>
+            <source media="(min-width:650px)" srcset="http://via.placeholder.com/1920x650">
+            <img class="banner__image" src="http://via.placeholder.com/600x600" alt="Banner image">
+        </picture>
+        <div class="banner__textbox banner__textbox--overlay u-text-center">
+            <h1 class="banner__title">Hello Developer!</h1>
+            <h4 class="banner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
+        </div>
+    </section>
+
+    <section id="hello-world" class="container p-t-xlg"></section>
+
+    <section class="container p-v-xlg">
+        <div class="grid grid--col grid--col-three">
+            <div class="flex flex--col flex--align-center p-lg u-border-radius u-shadow">
+                <img class="m-b-lg u-border-radius u-width-full" src="http://via.placeholder.com/400x300"/>
+                <p class="u-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <a href="#" class="button align--bottom">Read More</a>
+            </div>
+            <div class="flex flex--col flex--align-center p-lg u-border-radius u-shadow">
+                <img class="m-b-lg u-border-radius u-width-full" src="http://via.placeholder.com/400x300"/>
+                <p class="u-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="#" class="button align--bottom">Read More</a>
+            </div>
+            <div class="flex flex--col flex--align-center p-lg u-border-radius u-shadow">
+                <img class="m-b-lg u-border-radius u-width-full" src="http://via.placeholder.com/400x300"/>
+                <p class="u-text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                <a href="#" class="button align--bottom">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tabs" class="container m-b-xlg p-v-xlg"></section>
+
 </body>
 </html>

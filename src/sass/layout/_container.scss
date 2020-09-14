@@ -1,0 +1,22 @@
+// container wrapping elements
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container--full {
+  max-width: none;
+  padding: 0;
+}
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after {
+  clear: both;
+  content: "";
+  display: table;
+}

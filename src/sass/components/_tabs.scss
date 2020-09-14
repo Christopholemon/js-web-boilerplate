@@ -1,0 +1,111 @@
+// tabs/accordions
+
+// tabs buttons for desktop
+.tabs__tabs {
+  display: none;
+}
+
+@media (#{$bp-tablet}) {
+  .tabs__tabs {
+    display: grid;
+  }
+}
+
+// title row
+.tabs__title {
+  border: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: block;
+  margin: 0;
+  box-shadow: 0 0 0.75rem 0 rgba(0,0,0,0.25);
+
+  &.active {
+    background: $black;
+    // border-bottom-color: $white;
+    color: $white;
+  }
+}
+
+// body
+//
+.tabs__body {
+  border-bottom: 3px solid $black;
+  display: block;
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+.tabs__body-content {
+  $this: &;
+  display: none;
+
+  .active & { 
+    display: block;
+  }
+}
+
+@media (#{$bp-tablet}) {
+  .tabs__body-container {
+    background-color: $white;
+    box-shadow: 0 0 0.75rem 0 rgba(0,0,0,0.25);
+    z-index: 100; // to overlap the tab titles
+    position: relative;
+  }
+  .tabs__body {
+    border: 0;
+    // border: 3px solid $black;
+    border-top: 0;
+    display: none;
+    padding: 4rem 4rem 2rem;
+    &:last-of-type { // theres a nicer way to override this, but I can't brain it right now
+      // border-bottom: 3px solid $black;
+    }
+    &.active {
+      display: block;
+    }
+  }
+  .tabs__body-content {
+    display: block;
+  }
+}
+
+.tabs__body-title {
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0;
+  padding: 2rem 0;
+  position: relative;
+
+  &:before {
+    background-color: $black;
+    content: '';
+    height: 4px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+  }
+
+  &:after {
+    background-color: $black;
+    content: '';
+    height: 16px;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+
+    .active & {
+      display: none;
+    }
+  }
+}
+
+@media (#{$bp-tablet}) {
+  .tabs__body-title {
+    display: none;
+  }
+}

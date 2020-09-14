@@ -1,12 +1,10 @@
 @charset 'UTF-8';
 
-// **TODO** Really need to redo all the imports to @forward and @use
-
 // 1. Vendors
 @import './vendors/_index';
 
-// 2. Abstracts - Variables, functions, mixins, and placeholders
-@import './utils/_index';
+// 2. Setting vars and stuff
+@import './settings/_index';
 
 // 3. Base files
 @import './base/_index';
@@ -17,8 +15,5 @@
 // 5. Components
 @import './components/_index';
 
-// 6. Page-specific styles
-@import './pages/_index';
-
-// 7. Themes
-@import './themes/_index';
+// 6. Utils - Variables, functions, mixins, and placeholders
+@import './utils/_index';

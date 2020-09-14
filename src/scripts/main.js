@@ -1,17 +1,21 @@
 // import './main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './components';
+import { HelloWorld, Tabs } from './components';
 
-setTimeout(
-  () => {
+// setTimeout(
+//   () => {
     ReactDOM.render(
       <HelloWorld />,
-      document.getElementById('root')
-    )
-  },
-  2000
-);
+      document.getElementById('hello-world')
+    );
+    ReactDOM.render(
+      <Tabs />,
+      document.getElementById('tabs')
+    );
+//   },
+//   2000
+// );
 
 /*
 import React from 'react';

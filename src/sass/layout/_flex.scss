@@ -1,0 +1,34 @@
+// flex layout elements and modifiers
+
+//////////////////////////////////////
+// parent
+.flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1;
+  flex-basis: 100%;
+  // padding: $spacing-default $spacing-default/2;
+  // margin-left: -$spacing-default/2;
+  // margin-right: -$spacing-default/2;
+}
+
+//////////////////////////////////////
+// parent modifiers
+.flex--row {
+  flex-direction: row;
+}
+.flex--col {
+  flex-direction: column;
+}
+.flex--align-center {
+  align-items: center;
+}
+
+//////////////////////////////////////
+// element
+
+// element modifiers
+.align--bottom {
+  margin-top: auto;
+}

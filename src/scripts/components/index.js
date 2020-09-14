@@ -1,1 +1,7 @@
-export { default } from './hello-world';
+import HelloWorld from './hello-world';
+import Tabs from './tabs';
+
+export {
+  HelloWorld,
+  Tabs
+}

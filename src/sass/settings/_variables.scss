@@ -3,16 +3,15 @@
 // -----------------------------------------------------------------------------
 
 // Breakpoints
-$bp-larger-than-mobile    : "min-width: 400px" !default;
-$bp-larger-than-phablet   : "min-width: 550px" !default;
-$bp-larger-than-tablet    : "min-width: 750px" !default;
-$bp-larger-than-desktop   : "min-width: 1000px" !default;
-$bp-larger-than-desktophd : "min-width: 1200px" !default;
+$bp-tiny   : "max-width: 299px" !default;
+$bp-tablet   : "min-width: 650px" !default;
+$bp-desktop   : "min-width: 1000px" !default;
 
 //Globals
 $line-height:            2.4rem !default;
-$global-radius:          .2rem !default;
-$border-color:            #bbb !default;
+$global-radius:          0.5rem !default;
+$button-radius:          10rem !default;
+$spacing-default:                2rem !default;
 
 // Font variables
 $font-sans-serif: "Roboto", Helvetica, Arial, sans-serif !default;
@@ -30,18 +29,12 @@ $font-size--xs:            ceil($font-size * 0.85); // ~12px
 
 
 // Gray colors for theme
-$gray-lightest:          #f6f6f6;
-$gray-lighter:           #e4e4e4;
-$gray-light:             #d3d3d3;
-$gray:                   #a8a8a8;
-$gray-dark:              #7e7e7e;
-$gray-darker:            #545454;
-$gray-darkest:           #2a2a2a;
+$gray:                   #7e7e7e;
 
 // Classic brand colors
-$color-primary:         rgba(52, 152, 219,1.0);
+$color-primary:       #5BC0EB;
 $color-primary--dark:   darken($color-primary, 5%) !default;
-$color-secondary:       $gray-dark !default;
+$color-secondary:       $gray !default;
 
 $color-info:            #5BC0EB;
 $color-success:         #2BC016;
@@ -54,6 +47,7 @@ $color-link--hover:     darken($color-link, 10%) !default;
 $color-link--active:    #D44076 !default;
 
 $white:         #ffffff !default;
+$black:         #000000 !default;
 
 /// Copy text color
 /// @type Color

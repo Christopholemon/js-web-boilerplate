@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // const port = process.env.PORT;
 
@@ -19,7 +19,7 @@ module.exports = {
   watchOptions: {
     ignored: ['node_modules/**']
   },
-  mode: 'development',
+  // mode: 'development',
   entry: {
     main: './src/entry.js',
   },
@@ -77,8 +77,14 @@ module.exports = {
   //   extensions: [' ', '.js', '.jsx', '.scss']
   // },
   plugins: [
-    // cleaning the dist folder breaks the dev build - only the changed files get rebuilt, so html is lost on rebuild :(
-    // new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'static/', to: 'static/' },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
