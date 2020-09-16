@@ -19,6 +19,7 @@ module.exports = {
   watchOptions: {
     ignored: ['node_modules/**']
   },
+  devtool: 'inline-source-map',
   // mode: 'development',
   entry: {
     main: './src/entry.js',
@@ -91,12 +92,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    // new BrowserSyncPlugin({
-    //   // browse to http://localhost:3000/ during development,
-    //   // ./dist directory is being served
-    //   host: 'localhost',
-    //   port: port,
-    //   server: { baseDir: ['dist'] }
-    // })
   ]
 }

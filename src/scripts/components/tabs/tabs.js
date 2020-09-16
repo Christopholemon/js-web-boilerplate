@@ -10,21 +10,21 @@ function Tabs() {
 
   return (
     <>
-      {
-        /*
+      { 
+        /* 
           **TODO** Need to figure out exporting templates with Hooks
         */
 
-        !!haveData ?
+        !!haveData ? 
         <section className="tabs">
           <div className="grid grid--col-four tabs__tabs">
             { data.map( (e,i) => {
                 return (
-                  <h4
-                    key={"tabs-title" + i}
+                  <h4 
+                    key={"tabs-title" + i} 
                     id={"tabs-title-" + i}
-                    className={`button tabs__title ${i === tabController.currentTab ? 'active' : ''}`}
-                    data-tab-key={i}
+                    className={`button tabs__title ${i === tabController.currentTab ? 'active' : ''}`} 
+                    data-tab-key={i} 
                     data-tab-elem="desktop-tab"
                     onClick={tabController.onClick}
                   >
@@ -37,9 +37,9 @@ function Tabs() {
             { data.map( (e,i) => {
                 return (
                   <div
-                    key={"tabs-body-row-" + i}
-                    id={"tabs-body-" + i}
-                    className={`tabs__body ${i === tabController.currentTab ? 'active' : ''}`}
+                    key={"tabs-body-row-" + i} 
+                    id={"tabs-body-" + i} 
+                    className={`tabs__body ${i === tabController.currentTab ? 'active' : ''}`} 
                     data-tab-key={i}
                     data-tab-elem="body-tab"
                     onClick={tabController.onClick}

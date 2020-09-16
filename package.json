@@ -11,8 +11,9 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "start": "node -r esm server.js",
-    "serveDev": "nodemon --watch ./dist -r esm -r dotenv/config server.js",
+    "start": "node -r esm ./server/server.js",
+    "serveDevOLD": "nodemon --watch ./dist -r esm -r dotenv/config ./server/server.js",
+    "serveDev": "webpack-dev-server --open",
     "buildDev": "webpack --watch --mode development",
     "startDev": "run-p buildDev serveDev",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -45,6 +46,7 @@
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,7 +1,7 @@
-import HelloWorld from './hello-world';
-import Tabs from './tabs';
+import { default as Clock } from './clock';
+import { default as Tabs } from './tabs';
 
 export {
-  HelloWorld,
+  Clock,
   Tabs
 }

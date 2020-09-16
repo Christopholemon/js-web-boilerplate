@@ -2,23 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JS Web Boilerplate</title>
+    <title>Page title</title>
 </head>
 <body>
-    <section class="banner container container--full">
+    
+    <section class="container container--full">
         <picture>
             <source media="(min-width:650px)" srcset="http://via.placeholder.com/1920x650">
-            <img class="banner__image" src="http://via.placeholder.com/600x600" alt="Banner image">
+            <img class="" src="http://via.placeholder.com/600x600" alt="Banner image">
         </picture>
-        <div class="banner__textbox banner__textbox--overlay u-text-center">
-            <h1 class="banner__title">Hello Developer!</h1>
-            <h4 class="banner__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
-        </div>
     </section>
 
-    <section id="hello-world" class="container p-t-xlg"></section>
+    <section class="container p-t-xlg">
+        <h1 class="">Hello World!</h1>
+    </section>
+    
+    <section class="container p-t-xlg">
+        <hr />
+        <h2 class="">Sample Content and Components</h2>
+    </section>
 
-    <section class="container p-v-xlg">
+    <section class="container p-t-xlg">
+        <hr />
+        <h5>Clock</h5>
+        <div id="clock-timer" class="p-v-lg"></div>
+    </section>
+
+    <section class="container p-t-xlg">
+        <hr />
+        <h5>Content Blocks with buttons</h5>
         <div class="grid grid--col grid--col-three">
             <div class="flex flex--col flex--align-center p-lg u-border-radius u-shadow">
                 <img class="m-b-lg u-border-radius u-width-full" src="http://via.placeholder.com/400x300"/>
@@ -37,8 +49,10 @@
             </div>
         </div>
     </section>
-
-    <section id="tabs" class="container m-b-xlg p-v-xlg"></section>
-
+    <section class="container m-b-xlg p-v-xlg">
+        <hr />
+        <h5>Tabs (responsive into Accordions on mobile)</h5>
+        <div id="tabs"></div>
+    </section>
 </body>
 </html>

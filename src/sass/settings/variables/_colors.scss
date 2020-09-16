@@ -1,0 +1,26 @@
+// Colors
+
+// General
+$gray-light: #fefefe;
+$gray-mid:  #7f7f7f;
+$gray-dark:  #222222;
+$gray:                   $gray-mid;
+$white:         #ffffff !default;
+$black:         #000000 !default;
+
+// Messages
+$color-info:            #5BC0EB;
+$color-success:         #2BC016;
+$color-warning:         #E67E22;
+$color-danger:          #C3423F;
+
+// Links
+$color-link:            #496DDB !default;
+$color-link--visited:   #9140D4 !default;
+$color-link--hover:     darken($color-link, 10%) !default;
+$color-link--active:    #D44076 !default;
+
+// Theme colours
+$color-primary:       #5BC0EB;
+$color-primary--dark:   darken($color-primary, 5%) !default;
+$color-secondary:       $gray !default;

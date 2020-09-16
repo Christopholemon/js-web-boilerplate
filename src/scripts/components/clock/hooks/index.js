@@ -1,16 +1,10 @@
 // hooks/index.js is an entry file that merely re-exports its siblings.
 
 // **TODO** ugly export for now
-import useCount from './btn-count';
-import useDocumentTitle from './doc-title';
-import useFormInput from './form-input';
-import useWindowResolution from './window-res';
+import useGetTime from './get-time';
 
 export {
-  useCount,
-  useDocumentTitle,
-  useFormInput,
-  useWindowResolution
+  useGetTime
 }
 
 // **TODO** Happy export when the other it works nicely

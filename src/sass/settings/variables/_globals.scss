@@ -1,0 +1,17 @@
+//Globals
+$line-height:            2.4rem !default;
+$global-radius:          0.5rem !default;
+$button-radius:          10rem !default;
+$spacing-default:        2rem !default;
+
+// Grid Variables
+$container-width: 1000px !default;
+$container-width-larger-than-mobile: 85% !default;
+$container-width-larger-than-phablet: 80% !default;
+$total-columns: 12 !default;
+$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
+$column-margin: 2% !default; // space between column grids
+
+// Flex Grid Variables
+$flex-grid__column--fixed-width: 200px !default;
+$flex-grid--column-margin: 2% !default;
