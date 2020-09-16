@@ -12,9 +12,10 @@ Based on https://medium.com/@originaleye/build-an-express-react-node-web-app-fro
 **React Hooks:** https://reactjs.org/docs/hooks-intro.html, https://www.sitepoint.com/react-hooks/, https://github.com/rehooks/awesome-react-hooks, https://dev.to/dan_abramov/making-sense-of-react-hooks-2eib<br>
 **React Context:** https://reactjs.org/docs/context.html<br>
 **React Tests:** https://medium.com/@Charles_Stover/writing-testable-react-components-with-hooks-23441ee582d5<br>
-**Markdown Styling:** https://www.markdownguide.org/basic-syntax/<br>
+**Testing:** https://medium.com/welldone-software/an-overview-of-javascript-testing-7ce7298b9870<br>
 **TS:** https://www.typescriptlang.org/, https://www.sitepoint.com/react-with-typescript-best-practices/<br>
-**Misc:** https://pipedream.com/, https://www.programmableweb.com/category/all/apis
+**Markdown Styling:** https://www.markdownguide.org/basic-syntax/<br>
+**Misc:** https://pipedream.com/, https://www.programmableweb.com/category/all/apis, https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/
 
 ---
 
