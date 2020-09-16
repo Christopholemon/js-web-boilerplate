@@ -1,9 +1,8 @@
 import React from "react";
-// import { LoadingSpinner } from '../../shared';
-import { useGetTime, useFormatTime } from './hooks';
+import { default as useClock } from './hooks';
 
 function Clock() {
-  const time = useGetTime();
+  const time = useClock.useGetTime();
 
   return (
     <>
