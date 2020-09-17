@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "Christopholemon",
   "license": "ISC",
+  "jest": {
+    "verbose": true
+  },
   "engines": {
     "node": "v14.x"
   },

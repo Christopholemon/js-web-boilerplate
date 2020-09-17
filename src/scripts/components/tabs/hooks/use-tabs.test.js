@@ -1,12 +1,66 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { default as useTabs } from './index';
 
-describe('hook: useTabs', () => {
-  describe('hook: useTabController', () => {
+describe('hooks: useTabs', () => {
+  describe('useTabController: ', () => {
 
-    test('return: currentTab', () => {
+    // Test creation is working
+    test('check currentTab', () => {
       const { result } = renderHook(() => useTabs.useTabController(0));
       expect(result.current.currentTab).toBe(0);
+    });
+
+    // Test the various click events
+    /*
+      Reference:
+      https://medium.com/@Charles_Stover/writing-testable-react-components-with-hooks-23441ee582d5
+      https://css-tricks.com/testing-react-hooks-with-enzyme-and-react-testing-library/
+    */
+    describe('handleClick: ', () => {
+      test('tab 2 active', () => {
+
+        // Given: default is tab 1, id=0, currentTab=0
+        const { result } = renderHook(() => useTabs.useTabController(0));
+        const  updatedTab = { currentTarget: { dataset: { tabKey: 1 } } }; // Fake a click result dom element
+        expect(result.current.currentTab).toBe(0);
+
+        // When: fire click event
+        act(() => {
+          result.current.onClick(updatedTab);
+        });
+
+        // Then: expect current tab to change to tab 2, id=1, currentTab=1
+        expect(result.current.currentTab).toBe(1);
+
+      });
+      test('tab 3 active', () => {
+        // Given: default is tab 1, id=0, currentTab=0
+        const { result } = renderHook(() => useTabs.useTabController(0));
+        const  updatedTab = { currentTarget: { dataset: { tabKey: 2 } } }; // Fake a click result dom element
+        expect(result.current.currentTab).toBe(0);
+
+        // When: fire click event
+        act(() => {
+          result.current.onClick(updatedTab);
+        });
+
+        // Then: expect current tab to change to tab 3, id=2, currentTab=2
+        expect(result.current.currentTab).toBe(2);
+      })
+      test('tab 4 active', () => {
+        // Given: default is tab 1, id=0, currentTab=0
+        const { result } = renderHook(() => useTabs.useTabController(0));
+        const  updatedTab = { currentTarget: { dataset: { tabKey: 3 } } }; // Fake a click result dom element
+        expect(result.current.currentTab).toBe(0);
+
+        // When: fire click event
+        act(() => {
+          result.current.onClick(updatedTab);
+        });
+
+        // Then: expect current tab to change to tab 4, id=3, currentTab=3
+        expect(result.current.currentTab).toBe(3);
+      })
     });
 
     /*
